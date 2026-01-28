@@ -1,0 +1,211 @@
+[@main]
+#IF
+CHECKLEVELEX > 0
+#ACT
+GetDBItemFieldValue 〈魏武青虹〉Lv1ゞ魂珠 idx S$专属展示1
+GetDBItemFieldValue 〈四法青云〉Lv2ゞ魂珠 idx S$专属展示2
+GetDBItemFieldValue 〈斩妖泣血〉Lv3ゞ魂珠 idx S$专属展示3
+GetDBItemFieldValue 〈业火三灾〉Lv4ゞ魂珠 idx S$专属展示4
+GetDBItemFieldValue 〈紫电青霜〉Lv5ゞ魂珠 idx S$专属展示5
+GetDBItemFieldValue 〈君临天下〉Lv6ゞ魂珠 idx S$专属展示6
+GetDBItemFieldValue 〈九州憾天〉Lv7ゞ魂珠 idx S$专属展示7
+
+OPENMERCHANTBIGDLG 101 605 0 4 0 -100 1 568 2
+#SAY
+\ \ \ \ \
+<PlayImg:97:16:8:100:-57:-76:0:0>\
+<  ><ItemShow:<$STR(S$专属展示1)>:0:0:-27:1:0:1:50>   <〈魏武青虹〉Lv1ゞ魂珠/SCOLOR=254>       <10W元宝/SCOLOR=250>                                  <点击打造|253#特殊属性：^-^250#全身血量1.1倍/@001>\
+<----------------------------------------------------------------------------------------------/SCOLOR=12>\
+<PlayImg:97:16:8:100:-57:-76:0:0>\
+<  ><ItemShow:<$STR(S$专属展示2)>:0:0:-27:1:0:1:50>   <〈四法青云〉Lv2ゞ魂珠/SCOLOR=254>       <〈魏武青虹〉Lv1ゞ魂珠/SCOLOR=253> + <20W元宝/SCOLOR=250>          <点击打造|253#特殊属性：^-^250#全身血量1.2倍/@002>\
+<----------------------------------------------------------------------------------------------/SCOLOR=12>\
+<PlayImg:97:16:8:100:-57:-76:0:0>\
+<  ><ItemShow:<$STR(S$专属展示3)>:0:0:-27:1:0:1:50>   <〈斩妖泣血〉Lv3ゞ魂珠/SCOLOR=254>       <〈四法青云〉Lv2ゞ魂珠/SCOLOR=253> + <30W元宝/SCOLOR=250>          <点击打造|253#特殊属性：^-^250#全身血量1.3倍/@003>\
+<----------------------------------------------------------------------------------------------/SCOLOR=12>\
+<PlayImg:97:16:8:100:-57:-76:0:0>\
+<  ><ItemShow:<$STR(S$专属展示4)>:0:0:-27:1:0:1:50>   <〈业火三灾〉Lv4ゞ魂珠/SCOLOR=254>       <〈斩妖泣血〉Lv3ゞ魂珠/SCOLOR=253> + <50W元宝/SCOLOR=250>          <点击打造|253#特殊属性：^-^250#全身血量1.4倍/@004>\
+<----------------------------------------------------------------------------------------------/SCOLOR=12>\
+<PlayImg:97:16:8:100:-57:-76:0:0>\
+<  ><ItemShow:<$STR(S$专属展示5)>:0:0:-27:1:0:1:50>   <〈紫电青霜〉Lv5ゞ魂珠/SCOLOR=254>       <〈业火三灾〉Lv4ゞ魂珠/SCOLOR=253> + <80W元宝/SCOLOR=250>          <点击打造|253#特殊属性：^-^250#全身血量1.6倍/@005>\
+<----------------------------------------------------------------------------------------------/SCOLOR=12>\
+<PlayImg:97:16:8:100:-57:-76:0:0>\
+<  ><ItemShow:<$STR(S$专属展示6)>:0:0:-27:1:0:1:50>   <〈君临天下〉Lv6ゞ魂珠/SCOLOR=254>       <〈紫电青霜〉Lv5ゞ魂珠/SCOLOR=253> + <100W元宝/SCOLOR=250>         <点击打造|253#特殊属性：^-^250#全身血量1.8倍/@006>\
+<----------------------------------------------------------------------------------------------/SCOLOR=12>\
+<PlayImg:97:16:8:100:-57:-76:0:0>\
+<  ><ItemShow:<$STR(S$专属展示7)>:0:0:-27:1:0:1:50>   <〈九州憾天〉Lv7ゞ魂珠/SCOLOR=254>       <〈君临天下〉Lv6ゞ魂珠/SCOLOR=253> + <300W元宝/SCOLOR=250>         <点击打造|253#特殊属性：^-^250#全身血量2.0倍/@007>\
+<----------------------------------------------------------------------------------------------/SCOLOR=12>\ \
+
+
+
+
+
+[@001]
+#IF
+CHECKGAMEGOLD < 100000
+#ACT
+MESSAGEBOX 你元宝不足[100000]点！
+BREAK
+
+#IF
+CHECKGAMEGOLD > 99999
+#ACT
+GAMEGOLD - 100000
+GIVE 〈魏武青虹〉Lv1ゞ魂珠 1
+SENDCENTERMSG 253 4 玩家「<$USERNAME>」成功打造了1个『〈魏武青虹〉Lv1ゞ魂珠』！ 0 5
+BREAK
+
+
+[@002]
+#IF
+CHECKGAMEGOLD < 200000
+#ACT
+MESSAGEBOX 你元宝不足[200000]点！
+BREAK
+
+#IF
+NOT CHECKITEM 〈魏武青虹〉Lv1ゞ魂珠 1
+#ACT
+MESSAGEBOX 你身上缺少【〈魏武青虹〉Lv1ゞ魂珠*1】。无法合成！！
+BREAK
+
+#IF
+CHECKITEM 〈魏武青虹〉Lv1ゞ魂珠 1
+#ACT
+GAMEGOLD - 200000
+TAKE 〈魏武青虹〉Lv1ゞ魂珠 1
+GIVE 〈四法青云〉Lv2ゞ魂珠 1
+SENDCENTERMSG 253 4 玩家「<$USERNAME>」成功打造了1个『〈四法青云〉Lv2ゞ魂珠』！ 0 5
+BREAK
+
+
+
+
+
+[@003]
+#IF
+CHECKGAMEGOLD < 300000
+#ACT
+MESSAGEBOX 你元宝不足[300000]点！
+BREAK
+
+#IF
+NOT CHECKITEM 〈四法青云〉Lv2ゞ魂珠 1
+#ACT
+MESSAGEBOX 你身上缺少【〈四法青云〉Lv2ゞ魂珠*1】。无法合成！！
+BREAK
+
+#IF
+CHECKITEM 〈四法青云〉Lv2ゞ魂珠 1
+#ACT
+GAMEGOLD - 300000
+TAKE 〈四法青云〉Lv2ゞ魂珠 1
+GIVE 〈斩妖泣血〉Lv3ゞ魂珠 1
+SENDCENTERMSG 253 4 玩家「<$USERNAME>」成功打造了1个『〈斩妖泣血〉Lv3ゞ魂珠』！ 0 5
+BREAK
+
+
+
+
+[@004]
+#IF
+CHECKGAMEGOLD < 500000
+#ACT
+MESSAGEBOX 你元宝不足[500000]点！
+BREAK
+
+#IF
+NOT CHECKITEM 〈斩妖泣血〉Lv3ゞ魂珠 1
+#ACT
+MESSAGEBOX 你身上缺少【〈斩妖泣血〉Lv3ゞ魂珠*1】。无法合成！！
+BREAK
+
+#IF
+CHECKITEM 〈斩妖泣血〉Lv3ゞ魂珠 1
+#ACT
+GAMEGOLD - 500000
+TAKE 〈斩妖泣血〉Lv3ゞ魂珠 1
+GIVE 〈业火三灾〉Lv4ゞ魂珠 1
+SENDCENTERMSG 253 4 玩家「<$USERNAME>」成功打造了1个『〈业火三灾〉Lv4ゞ魂珠』！ 0 5
+BREAK
+
+
+
+
+[@005]
+#IF
+CHECKGAMEGOLD < 800000
+#ACT
+MESSAGEBOX 你元宝不足[800000]点！
+BREAK
+
+#IF
+NOT CHECKITEM 〈业火三灾〉Lv4ゞ魂珠 1
+#ACT
+MESSAGEBOX 你身上缺少【〈业火三灾〉Lv4ゞ魂珠*1】。无法合成！！
+BREAK
+
+#IF
+CHECKITEM 〈业火三灾〉Lv4ゞ魂珠 1
+#ACT
+GAMEGOLD - 800000
+TAKE 〈业火三灾〉Lv4ゞ魂珠 1
+GIVE 〈紫电青霜〉Lv5ゞ魂珠 1
+SENDCENTERMSG 253 4 玩家「<$USERNAME>」成功打造了1个『〈紫电青霜〉Lv5ゞ魂珠』！ 0 5
+BREAK
+
+
+
+
+
+[@006]
+#IF
+CHECKGAMEGOLD < 1000000
+#ACT
+MESSAGEBOX 你元宝不足[1000000]点！
+BREAK
+
+#IF
+NOT CHECKITEM 〈紫电青霜〉Lv5ゞ魂珠 1
+#ACT
+MESSAGEBOX 你身上缺少【〈紫电青霜〉Lv5ゞ魂珠*1】。无法合成！！
+BREAK
+
+#IF
+CHECKITEM 〈紫电青霜〉Lv5ゞ魂珠 1
+#ACT
+GAMEGOLD - 1000000
+TAKE 〈紫电青霜〉Lv5ゞ魂珠 1
+GIVE 〈君临天下〉Lv6ゞ魂珠 1
+SENDCENTERMSG 253 4 玩家「<$USERNAME>」成功打造了1个『〈君临天下〉Lv6ゞ魂珠』！ 0 5
+BREAK
+
+
+
+
+[@007]
+#IF
+CHECKGAMEGOLD < 3000000
+#ACT
+MESSAGEBOX 你元宝不足[3000000]点！
+BREAK
+
+#IF
+NOT CHECKITEM 〈君临天下〉Lv6ゞ魂珠 1
+#ACT
+MESSAGEBOX 你身上缺少【〈君临天下〉Lv6ゞ魂珠*1】。无法合成！！
+BREAK
+
+#IF
+CHECKITEM 〈君临天下〉Lv6ゞ魂珠 1
+#ACT
+GAMEGOLD - 3000000
+TAKE 〈君临天下〉Lv6ゞ魂珠 1
+GIVE 〈九州憾天〉Lv7ゞ魂珠 1
+SENDCENTERMSG 253 4 玩家「<$USERNAME>」成功打造了1个『〈九州憾天〉Lv7ゞ魂珠』！ 0 5
+BREAK
+
+
+
+
+
+

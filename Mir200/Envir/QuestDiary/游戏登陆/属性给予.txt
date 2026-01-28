@@ -1,0 +1,779 @@
+[@人物属性]
+{
+;#IF
+;#ACT
+;DELBUTTON 18 0
+;DELBUTTON 19 0
+;DELBUTTON 20 0
+
+#IF
+#ACT
+MOV S$人物基础封号 〝┈━=≡☆逐鹿中原☆≡=━┈〞
+
+#IF
+#ACT
+MOV S$人物斩杀封号 ◥▉▇▆▅▃▂‖斩杀∶(<$STR(U1)>)人‖▂▃▅▆▇▉◤
+
+
+#IF
+EQUAL U50 1
+#ACT
+SENDMSG 6 当前魂骨为1级
+#IF
+EQUAL U50 2
+#ACT
+SENDMSG 6 当前魂骨为2级
+#IF
+EQUAL U50 3
+#ACT
+SENDMSG 6 当前魂骨为3级
+#IF
+EQUAL U50 4
+#ACT
+SENDMSG 6 当前魂骨为4级
+#IF
+EQUAL U50 5
+#ACT
+SENDMSG 6 当前魂骨为5级
+#IF
+EQUAL U50 6
+#ACT
+SENDMSG 6 当前魂骨为6级
+
+#IF
+#ACT
+MOV N$切割倍数 100
+MOV N$赞助切割 0
+MOV N$战火切割 0
+MOV N$装备切割 0
+MOV N$公益切割 0
+MOV N$切割倍数 0
+MOV N$赞助爆率 0
+MOV N$狂暴爆率 0
+MOV N$称号爆率 0
+MOV N$盾牌爆率 0
+MOV N$压万爆率 0
+MOV N$遮天爆率 0
+MOV N$本区爆率 0
+MOV N$公益爆率 0
+MOV N$勋章倍数 0
+MOV N$转生倍数 0
+
+MOV N$新加爆率 0
+MOV N$新加切割 0
+
+
+
+#IF
+CHECKTITLE 沙城捐献
+#ACT
+MOV N$新加切割 388888
+
+
+
+#IF
+CHECK [200] 1
+#ACT
+MOV N$赞助切割 1000
+
+#IF
+CHECK [201] 1
+#ACT
+MOV N$赞助切割 3000
+
+#IF
+CHECK [202] 1
+#ACT
+MOV N$赞助切割 5000
+
+#IF
+CHECK [203] 1
+#ACT
+MOV N$赞助切割 10000
+
+#IF
+CHECK [204] 1
+#ACT
+MOV N$赞助切割 20000
+
+#IF
+CHECKTITLE 战火之力
+#ACT
+MOV N$战火切割 2000
+
+#IF
+#ACT
+GETHUMCUSTOMITEMVALUE 6 8 N10 N11
+MOV N$装备切割 <$STR(N10)>
+
+
+#OR
+CHECKContainsText <$SERVERNAME> 01区
+
+#ACT
+MOV N$本区爆率 10
+
+
+#OR
+CHECKContainsText <$SERVERNAME> 02区
+
+#ACT
+MOV N$本区爆率 20
+
+
+#OR
+CHECKContainsText <$SERVERNAME> 03区
+
+#ACT
+MOV N$本区爆率 30
+
+
+#OR
+CHECKContainsText <$SERVERNAME> 04区
+
+#ACT
+MOV N$本区爆率 40
+
+
+#OR
+CHECKContainsText <$SERVERNAME> 05区
+
+#ACT
+MOV N$本区爆率 50
+
+
+#OR
+CHECKContainsText <$SERVERNAME> 06区
+
+#ACT
+MOV N$本区爆率 60
+
+
+#OR
+CHECKContainsText <$SERVERNAME> 07区
+
+#ACT
+MOV N$本区爆率 70
+
+
+#OR
+CHECKContainsText <$SERVERNAME> 08区
+
+#ACT
+MOV N$本区爆率 80
+
+
+
+#OR
+CHECKContainsText <$SERVERNAME> 09区
+
+#ACT
+MOV N$本区爆率 90
+
+
+#OR
+CHECKContainsText <$SERVERNAME> 10区
+
+#ACT
+MOV N$本区爆率 100
+
+#IF
+CHECKTITLE 初学★子弟
+#ACT
+MOV N$称号爆率 5
+SETICON 7 98 0 0 0 10 0 150 0
+
+#IF
+CHECKTITLE 初窥★武学
+#ACT
+MOV N$称号爆率 10
+SETICON 7 98 20 0 0 12 0 150 0
+
+#IF
+CHECKTITLE 天资★过人
+#ACT
+MOV N$称号爆率 15
+SETICON 7 98 40 0 0 12 0 150 0
+
+#IF
+CHECKTITLE 锋芒★毕露
+#ACT
+MOV N$称号爆率 20
+SETICON 7 98 60 0 0 12 0 150 0
+
+#IF
+CHECKTITLE 涉足★江湖
+#ACT
+MOV N$称号爆率 25
+SETICON 7 98 80 0 0 12 0 150 0
+
+#IF
+CHECKTITLE 杀戮★武林
+#ACT
+MOV N$称号爆率 30
+SETICON 7 98 100 0 0 12 0 150 0
+
+#IF
+CHECKTITLE 名震★江湖
+#ACT
+MOV N$称号爆率 40
+SETICON 7 98 120 0 0 12 0 150 0
+
+#IF
+CHECKTITLE 开山★立派
+#ACT
+MOV N$称号爆率 50
+SETICON 7 98 140 0 0 12 0 150 0
+
+#IF
+CHECKTITLE 武林★泰斗
+#ACT
+MOV N$称号爆率 60
+SETICON 7 98 160 0 0 12 0 150 0
+
+#IF
+CHECKTITLE 浩瀚★灭天
+#ACT
+MOV N$称号爆率 70
+SETICON 7 98 180 0 0 12 0 150 0
+
+#IF
+CHECKTITLE 武神★天尊
+#ACT
+MOV N$称号爆率 80
+SETICON 7 98 200 0 0 11 0 150 0
+
+#IF
+CHECKTITLE ·炉火★纯青·
+#ACT
+MOV N$称号爆率 100
+SETICON 7 98 220 0 0 10 0 150 0
+
+#IF
+CHECKTITLE ·名扬★四海·
+#ACT
+MOV N$称号爆率 130
+SETICON 7 98 240 0 0 10 0 150 0
+
+#IF
+CHECKTITLE ·谁与★争锋·
+#ACT
+MOV N$称号爆率 160
+SETICON 7 98 260 0 0 8 0 150 0
+
+#IF
+CHECKTITLE ·登峰★造极·
+#ACT
+MOV N$称号爆率 200
+SETICON 7 98 280 0 0 10 0 150 0
+
+#IF
+CHECKTITLE ·凤翔★九天·
+#ACT
+MOV N$称号爆率 250
+SETICON 7 98 300 0 0 8 0 150 0
+
+#IF
+CHECKTITLE ·无人★能挡·
+#ACT
+MOV N$称号爆率 300
+SETICON 7 98 320 0 0 10 0 150 0
+
+
+#IF
+CHECKTITLE ·逐鹿★群雄·
+#ACT
+MOV N$称号爆率 400
+SETICON 7 98 340 0 0 8 0 150 0
+
+#IF
+CHECK [328] 1
+CHECK [329] 1
+CHECK [330] 1
+CHECK [331] 1
+#ACT
+INC N$称号爆率 100
+
+
+#IF
+CHECKITEMW 《乱世逐鹿》「殺」卐盾
+#ACT
+MOV N$盾牌爆率 20
+
+#IF
+CHECKITEMW 【堅如磐石】埋骨何须桑梓地★盾
+#ACT
+MOV N$盾牌爆率 50
+
+
+
+#IF
+CHECKITEMW 乱『王』世※戟★ 
+#ACT
+MOV N$遮天爆率 50
+
+#IF
+CHECKITEMW 乱『王』世※戟★★★ 
+#ACT
+MOV N$遮天爆率 100
+
+#IF
+CHECKITEMW 乱『王』世※戟★★★★★
+#ACT
+MOV N$遮天爆率 200
+
+
+;----------------------------------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------------------------------
+#IF
+CHECKTITLE 狂暴※之力
+#ACT
+ADDSKILL 半月弯刀 3
+MOV N$狂暴爆率 100
+SETICON 1 98 380 -38 -3 16 0 150 0
+#ELSEACT
+DELSKILL 半月弯刀
+
+
+;----------------------------------------------------------------------------------------------------------
+;-------------------------------------公益捐献暴率---------------------------------------------------------
+;----------------------------------------------------------------------------------------------------------
+#IF
+CHECKTITLE 第一富豪
+#ACT
+MOV N$公益爆率 300
+
+#IF
+CHECKTITLE 第二富豪
+#ACT
+MOV N$公益爆率 200
+
+#IF
+CHECKTITLE 第三富豪
+#ACT
+MOV N$公益爆率 150
+
+#IF
+CHECKTITLE 爱心大使
+#ACT
+MOV N$公益爆率 50
+
+
+
+#IF
+CHECK [200] 1
+#ACT
+MOV N$赞助爆率 30
+
+#IF
+CHECK [201] 1
+#ACT
+MOV N$赞助爆率 60
+
+#IF
+CHECK [202] 1
+#ACT
+MOV N$赞助爆率 100
+
+#IF
+CHECK [203] 1
+#ACT
+MOV N$赞助爆率 150
+
+#IF
+CHECK [204] 1
+#ACT
+MOV N$赞助爆率 200
+SETICON 2 98 360 38 10 6 0 150 0
+
+#IF
+CHECKNAMELIST ..\QuestDiary\公益捐献\封顶玩家列表.txt
+#ACT
+SETICON 8 109 0 76 75 11 0 100 0
+
+
+#IF
+CHECKRENEWLEVEL = 0
+#ACT
+MOV S$人物转生显示 ≮→≌←☆★转生：０级★☆→≌←≯
+
+#IF
+CHECKRENEWLEVEL = 1
+#ACT
+MOV N$转生倍数 1
+MOV S$人物转生显示 ≮→≌←☆★转生：一重转生★☆→≌←≯
+
+#IF
+CHECKRENEWLEVEL = 2
+#ACT
+MOV N$转生倍数 2
+MOV S$人物转生显示 ≮→≌←☆★转生：二重转生★☆→≌←≯
+
+#IF
+CHECKRENEWLEVEL = 3
+#ACT
+MOV N$转生倍数 3
+MOV S$人物转生显示 ≮→≌←☆★转生：三重转生★☆→≌←≯
+
+#IF
+CHECKRENEWLEVEL = 4
+#ACT
+MOV N$转生倍数 4
+MOV S$人物转生显示 ≮→≌←☆★转生：四重转生★☆→≌←≯
+
+#IF
+CHECKRENEWLEVEL = 5
+#ACT
+MOV N$转生倍数 5
+MOV S$人物转生显示 ≮→≌←☆★转生：五重转生★☆→≌←≯
+
+#IF
+CHECKRENEWLEVEL = 6
+#ACT
+MOV N$转生倍数 6
+MOV S$人物转生显示 ≮→≌←☆★转生：六重转生★☆→≌←≯
+
+#IF
+CHECKRENEWLEVEL = 7
+#ACT
+MOV N$转生倍数 7
+MOV S$人物转生显示 ≮→≌←☆★转生：七重转生★☆→≌←≯
+
+
+#IF
+CHECKRENEWLEVEL = 8
+#ACT
+MOV N$转生倍数 8
+MOV S$人物转生显示 ≮→≌←☆★转生：八重转生★☆→≌←≯
+
+#IF
+CHECKRENEWLEVEL = 9
+#ACT
+MOV N$转生倍数 9
+MOV S$人物转生显示 ≮→≌←☆★转生：九重转生★☆→≌←≯
+
+#IF
+CHECKRENEWLEVEL = 10
+#ACT
+MOV N$转生倍数 10
+MOV S$人物转生显示 ≮→≌←☆★转生：十重转生★☆→≌←≯
+
+#IF
+CHECKRENEWLEVEL = 11
+#ACT
+MOV N$转生倍数 12
+MOV S$人物转生显示 ≮→≌←☆★转生：11重转生★☆→≌←≯
+
+#IF
+CHECKRENEWLEVEL = 12
+#ACT
+MOV N$转生倍数 14
+MOV S$人物转生显示 ≮→≌←☆★转生：12重转生★☆→≌←≯
+
+#IF
+CHECKRENEWLEVEL = 13
+#ACT
+MOV N$转生倍数 16
+MOV S$人物转生显示 ≮→≌←☆★转生：13重转生★☆→≌←≯
+
+#IF
+CHECKRENEWLEVEL = 14
+#ACT
+MOV N$转生倍数 18
+MOV S$人物转生显示 ≮→≌←☆★转生：14重转生★☆→≌←≯
+
+#IF
+CHECKRENEWLEVEL = 15
+#ACT
+MOV N$转生倍数 20
+MOV S$人物转生显示 ≮→≌←☆★转生：15重转生★☆→≌←≯
+
+
+#IF
+CHECKRENEWLEVEL = 16
+#ACT
+MOV N$转生倍数 22
+MOV S$人物转生显示 ≮→≌←☆★转生：16重转生★☆→≌←≯
+
+#IF
+CHECKRENEWLEVEL = 17
+#ACT
+MOV N$转生倍数 24
+MOV S$人物转生显示 ≮→≌←☆★转生：17重转生★☆→≌←≯
+
+#IF
+CHECKRENEWLEVEL = 18
+#ACT
+MOV N$转生倍数 26
+MOV S$人物转生显示 ≮→≌←☆★转生：18重转生★☆→≌←≯
+
+#IF
+CHECKRENEWLEVEL = 19
+#ACT
+MOV N$转生倍数 28
+MOV S$人物转生显示 ≮→≌←☆★转生：19重转生★☆→≌←≯
+
+#IF
+CHECKRENEWLEVEL = 20
+#ACT
+MOV N$转生倍数 30
+MOV S$人物转生显示 ≮→≌←☆★转生：20重转生★☆→≌←≯
+
+#IF
+CHECKRENEWLEVEL = 21
+#ACT
+MOV N$转生倍数 33
+MOV S$人物转生显示 ≮→≌←☆★转生：21重转生★☆→≌←≯
+
+#IF
+CHECKRENEWLEVEL = 22
+#ACT
+MOV N$转生倍数 36
+MOV S$人物转生显示 ≮→≌←☆★转生：22重转生★☆→≌←≯
+
+#IF
+CHECKRENEWLEVEL = 23
+#ACT
+MOV N$转生倍数 39
+MOV S$人物转生显示 ≮→≌←☆★转生：23重转生★☆→≌←≯
+
+#IF
+CHECKRENEWLEVEL = 24
+#ACT
+MOV N$转生倍数 42
+MOV S$人物转生显示 ≮→≌←☆★转生：24重转生★☆→≌←≯
+
+#IF
+CHECKRENEWLEVEL = 25
+#ACT
+MOV N$转生倍数 45
+MOV S$人物转生显示 ≮→≌←☆★转生：25重转生★☆→≌←≯
+
+#IF
+CHECKRENEWLEVEL = 26
+#ACT
+MOV N$转生倍数 48
+MOV S$人物转生显示 ≮→≌←☆★转生：26重转生★☆→≌←≯
+
+#IF
+CHECKRENEWLEVEL = 27
+#ACT
+MOV N$转生倍数 51
+MOV S$人物转生显示 ≮→≌←☆★转生：27重转生★☆→≌←≯
+
+#IF
+CHECKRENEWLEVEL = 28
+#ACT
+MOV N$转生倍数 54
+MOV S$人物转生显示 ≮→≌←☆★转生：28重转生★☆→≌←≯
+
+#IF
+CHECKRENEWLEVEL = 29
+#ACT
+MOV N$转生倍数 57
+MOV S$人物转生显示 ≮→≌←☆★转生：29重转生★☆→≌←≯
+
+#IF
+CHECKRENEWLEVEL = 30
+#ACT
+MOV N$转生倍数 60
+MOV S$人物转生显示 ≮→≌←☆★转生：30重转生★☆→≌←≯
+
+
+
+#IF
+CHECKITEMW 〈群雄争霸〉Lv1ゞ章
+#ACT
+MOV N$勋章倍数 5
+
+#IF
+CHECKITEMW 〈决战云巅〉Lv2ゞ章
+#ACT
+MOV N$勋章倍数 10
+
+#IF
+CHECKITEMW 〈琼华紫金〉Lv3ゞ章
+#ACT
+MOV N$勋章倍数 15
+
+#IF
+CHECKITEMW 〈霸世金典〉Lv4ゞ章
+#ACT
+MOV N$勋章倍数 20
+
+#IF
+CHECKITEMW 〈九死生杀〉Lv5ゞ章
+#ACT
+MOV N$勋章倍数 25
+
+#IF
+CHECKITEMW 〈一手遮天〉Lv6ゞ章
+#ACT
+MOV N$勋章倍数 30
+
+#IF
+CHECKITEMW 〈无敌盖世〉Lv7ゞ章
+#ACT
+MOV N$勋章倍数 35
+
+#IF
+CHECKITEMW 〈雄霸天下〉Lv8ゞ章
+#ACT
+MOV N$勋章倍数 40
+
+#IF
+CHECKITEMW 〈傲视群雄〉Lv9ゞ章
+#ACT
+MOV N$勋章倍数 45
+
+#IF
+CHECKITEMW 〈皇图霸业〉Lv10ゞ章
+#ACT
+MOV N$勋章倍数 50
+
+#IF
+CHECKITEMW 〈魑魅魍魉〉「尊」卐章
+#ACT
+MOV N$勋章倍数 60
+
+#IF
+CHECKITEMW 《拳拳到肉》「圣」卐章
+#ACT
+MOV N$勋章倍数 80
+
+#IF
+CHECKITEMW 【不講武德】古来征战几人回★章
+#ACT
+MOV N$勋章倍数 100
+
+
+
+
+
+#IF
+#ACT
+MOV N$总切割 0
+MOV N$切割倍数 100
+INC N$总切割 <$STR(N$赞助切割)>
+INC N$总切割 <$STR(N$战火切割)>
+INC N$总切割 <$STR(N$装备切割)>
+INC N$总切割 <$STR(N$公益切割)>
+INC N$总切割 <$STR(N$新加切割)>
+
+
+#IF
+#ACT
+MOV N$总爆率 100
+INC N$总爆率 <$STR(N$赞助爆率)>
+INC N$总爆率 <$STR(N$狂暴爆率)>
+INC N$总爆率 <$STR(N$称号爆率)>
+INC N$总爆率 <$STR(N$公益爆率)>
+INC N$总爆率 <$STR(N$盾牌爆率)>
+INC N$总爆率 <$STR(N$遮天爆率)>
+INC N$总爆率 <$STR(N$本区爆率)>
+INC N$总爆率 <$STR(N$新加爆率)>
+
+#IF
+#ACT
+MOV N$总倍数 100
+INC N$总倍数 <$STR(N$转生倍数)>
+INC N$总倍数 <$STR(N$勋章倍数)>
+INC N$总倍数 <$STR(N$称号倍数)>
+
+
+#IF
+CHECKITEMW 〈神威亢天〉Lv1ヾ盾
+#ACT
+INC N$切割倍数 50
+
+#IF
+CHECKITEMW 〈魔神之隕〉Lv2ヾ盾
+#ACT
+INC N$切割倍数 100
+
+#IF
+CHECKITEMW 〈神雷天裁〉Lv3ヾ盾
+#ACT
+INC N$切割倍数 150
+
+#IF
+CHECKITEMW 〈龍血戰神〉Lv4ヾ盾
+#ACT
+INC N$切割倍数 200
+
+#IF
+CHECKITEMW 〈刀劍神皇〉Lv5ヾ盾
+#ACT
+INC N$切割倍数 300
+
+#IF
+CHECKITEMW 〈真靈九變〉Lv6ヾ盾
+#ACT
+INC N$切割倍数 400
+
+#IF
+CHECKITEMW 〈龍王無雙〉Lv7ヾ盾
+#ACT
+INC N$切割倍数 500
+
+#IF
+CHECKITEMW 〈金絲龍鱗〉Lv8ヾ盾
+#ACT
+INC N$切割倍数 700
+
+#IF
+CHECKITEMW 〈赤心巡天〉Lv9ヾ盾
+#ACT
+INC N$切割倍数 900
+
+#IF
+CHECKITEMW 《乱世逐鹿》「殺」卐盾
+#ACT
+INC N$切割倍数 1200
+
+#IF
+CHECKITEMW 【堅如磐石】埋骨何须桑梓地★盾
+#ACT
+INC N$切割倍数 1400
+
+
+
+#IF
+#ACT
+DIV N$总切割 100
+MUL N$总切割 N$切割倍数
+;ADDBUTTON 74 18 169 169 169 0 400 0 　<$STR(N$总爆率)>%
+;ADDBUTTON 74 19 170 170 170 0 425 0 　<$STR(N$总倍数)>%
+;ADDBUTTON 74 20 171 171 171 0 450 0 　<$STR(N$总切割)>
+POWERRATE <$STR(N$总倍数)> 999999
+KILLMONBURSTRATE 20140220 20140221 <$STR(N$总爆率)> 20140223 20140224 20140225 20140226 65535 20140227 20140228
+SETRANKLEVELNAME %s\<$STR(S$人物基础封号)>\◣★◥□神力:<$POWERRATE>倍□◤☆◢\<$STR(S$人物转生显示)>\<$STR(S$人物斩杀封号)>\
+
+#IF
+CHECK [10] 1
+#ACT
+DELBUTTON 1 0
+DELBUTTON 2 0
+DELBUTTON 3 0
+DELBUTTON 4 0
+DELBUTTON 5 0
+DELBUTTON 6 0
+DELBUTTON 7 0
+DELBUTTON 8 0
+DELBUTTON 9 0
+DELBUTTON 10 0
+DELBUTTON 11 0
+ADDBUTTON 51 1 1711 1712 1713 148 42  0 -1 \254/点击打开逐鹿攻略
+ADDBUTTON 51 2 1714 1715 1716 173 42  0 -1 \254/点击查看世界BOSS
+ADDBUTTON 51 3 1732 1733 1734 198 42  0 -1 \254/点击查看狂暴之力
+ADDBUTTON 51 4 1726 1727 1728 223 42  0 -1 \254/点击查看首爆奖励
+ADDBUTTON 51 5 1720 1721 1722 248 42  0 -1 \254/点击打开装备回收
+ADDBUTTON 51 6 1735 1736 1737 273 42  0 -1 \254/点击查看装备重鉴
+ADDBUTTON 51 7 1747 1748 1749 298 42  0 -1 \254/点击查看装备投保
+ADDBUTTON 51 8 9999 9999 9999 210 86  0 <$STR(N$总爆率)>%
+ADDBUTTON 51 9 9999 9999 9999 288 86  0 <$STR(N$总切割)>
+ADDBUTTON 51 10 9999 9999 9999 210 106  0 <$STR(N$总倍数)>%
+ADDBUTTONEX 11|-10|-50|0 51 1690 51 1690|21|150|1|0|0 * * -1|254/点击收起菜单 0
+
+}

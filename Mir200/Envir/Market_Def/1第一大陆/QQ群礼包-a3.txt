@@ -1,0 +1,64 @@
+[@main]
+#IF
+CheckItemAddValue 1 0 > 1
+#ACT
+GETITEMADDVALUE 1 0 <$STR(M10)>
+#SAY
+你的盔甲附加了<$STR(M10)>点防御属性. 
+
+
+
+#IF
+CHECKLEVELEX > 0
+#ACT
+OPENMERCHANTBIGDLG 101 607 0 0 0 0 1 449 2
+#SAY
+<> \
+<>\
+</AUTOCOLOR=0><PlayImg:101:690:10:100:-3:-3:0><获取方法:加入QQ群，查看QQ群兑换码即可.群管理公告内.公布礼包代码./FCOLOR=250>\
+<>\
+</AUTOCOLOR=0><PlayImg:101:690:10:100:-3:-3:0><礼包包含：【施毒术】一本 /FCOLOR=251>\
+<>\
+</AUTOCOLOR=0><PlayImg:101:650:10:100:-3:-3:0><礼包包含：〈离别之吻〉Lv1ゞ斧】一个/FCOLOR=253>\
+<>\
+</AUTOCOLOR=0><PlayImg:101:670:10:100:-3:-3:0><礼包包含：【〈神威亢天〉Lv1ヾ盾】一个/FCOLOR=249>  \
+<>\
+</AUTOCOLOR=0><PlayImg:101:660:10:100:-3:-3:0><QQ①群:75663764 QQ②群:75663764 QQ群兑换码:888888/FCOLOR=254>\
+<>\
+<         /AUTOCOLOR=0>   <点击输入兑换码/@@InPutString20>　　　　　　　　\
+
+
+
+
+
+[@InPutString20]
+
+#IF
+NOT EQUAL S20 888888
+#ACT
+MESSAGEBOX 提　示：兑换码错误！请关注官方QQ群号获取兑换码！
+BREAK
+
+#IF
+CHECK [1] 1
+#ACT
+MESSAGEBOX 提示：你好像已经领取过了吧？
+BREAK
+
+
+#IF
+CHECK [1] 0
+EQUAL S20 888888
+#ACT
+SET [1] 1
+GIVE 施毒术
+GIVE 〈离别之吻〉Lv1ゞ斧 1
+GIVE 〈神威亢天〉Lv1ヾ盾 1
+MESSAGEBOX 恭喜：您已成功领取QQ群礼包，欢迎加入逐鹿中原最新长久版本..！
+SENDMSG 0 252 232 恭喜：[<$USERNAME>]成功领取了“QQ群礼包”获得[施毒术]+〈离别之吻〉Lv1ゞ斧+〈神威亢天〉Lv1ヾ盾！！
+SENDMSG 0 252 232 恭喜：[<$USERNAME>]成功领取了“QQ群礼包”获得[施毒术]+〈离别之吻〉Lv1ゞ斧+〈神威亢天〉Lv1ヾ盾！！
+BREAK
+
+
+
+

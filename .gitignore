@@ -1,0 +1,9 @@
+/DBServer/
+/LoginGate/
+/LoginSrv/
+/LogServer/
+/RunGate/
+/Mir200/ChatLog/
+/Mir200/Log/
+/Mir200/ConLog/
+*.ini

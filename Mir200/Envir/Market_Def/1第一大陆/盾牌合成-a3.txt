@@ -1,0 +1,312 @@
+[@main]
+#IF
+CHECKLEVELEX > 0
+#ACT
+GetDBItemFieldValue 〈魔神之隕〉Lv2ヾ盾 idx S$专属展示1
+GetDBItemFieldValue 〈神雷天裁〉Lv3ヾ盾 idx S$专属展示2
+GetDBItemFieldValue 〈龍血戰神〉Lv4ヾ盾 idx S$专属展示3
+GetDBItemFieldValue 〈刀劍神皇〉Lv5ヾ盾 idx S$专属展示4
+GetDBItemFieldValue 〈真靈九變〉Lv6ヾ盾 idx S$专属展示5
+GetDBItemFieldValue 〈龍王無雙〉Lv7ヾ盾 idx S$专属展示6
+GetDBItemFieldValue 〈金絲龍鱗〉Lv8ヾ盾 idx S$专属展示7
+GetDBItemFieldValue 〈赤心巡天〉Lv9ヾ盾 idx S$专属展示8
+
+OPENMERCHANTBIGDLG 101 605 0 4 0 -100 1 568 2
+#SAY
+\ \ \ \ \
+<PlayImg:97:8:8:100:-57:-76:0:0>\
+<  ><ItemShow:<$STR(S$专属展示1)>:0:0:-27:1:0:1:50>   <〈魔神之隕〉Lv2ヾ盾/SCOLOR=254>       <〈神威亢天〉Lv1ヾ盾/SCOLOR=253> + <1万逐币/SCOLOR=250>           <点击打造|253#特殊属性：^-^250#全身刀刀切割总值2.0倍/@003>\
+<----------------------------------------------------------------------------------------------/SCOLOR=12>\
+<PlayImg:97:8:8:100:-57:-76:0:0>\
+<  ><ItemShow:<$STR(S$专属展示2)>:0:0:-27:1:0:1:50>   <〈神雷天裁〉Lv3ヾ盾/SCOLOR=254>       <〈魔神之隕〉Lv2ヾ盾/SCOLOR=253> + <2万逐币/SCOLOR=250>           <点击打造|253#特殊属性：^-^250#全身刀刀切割总值2.5倍/@004>\
+<----------------------------------------------------------------------------------------------/SCOLOR=12>\
+<PlayImg:97:8:8:100:-57:-76:0:0>\
+<  ><ItemShow:<$STR(S$专属展示3)>:0:0:-27:1:0:1:50>   <〈龍血戰神〉Lv4ヾ盾/SCOLOR=254>       <〈神雷天裁〉Lv3ヾ盾/SCOLOR=253> + <3万逐币/SCOLOR=250>           <点击打造|253#特殊属性：^-^250#全身刀刀切割总值3.0倍/@005>\
+<----------------------------------------------------------------------------------------------/SCOLOR=12>\
+<PlayImg:97:8:8:100:-57:-76:0:0>\
+<  ><ItemShow:<$STR(S$专属展示4)>:0:0:-27:1:0:1:50>   <〈刀劍神皇〉Lv5ヾ盾/SCOLOR=254>       <〈龍血戰神〉Lv4ヾ盾/SCOLOR=253> + <4万逐币/SCOLOR=250>           <点击打造|253#特殊属性：^-^250#全身刀刀切割总值4.0倍/@006>\
+<----------------------------------------------------------------------------------------------/SCOLOR=12>\
+<PlayImg:97:8:8:100:-57:-76:0:0>\
+<  ><ItemShow:<$STR(S$专属展示5)>:0:0:-27:1:0:1:50>   <〈真靈九變〉Lv6ヾ盾/SCOLOR=254>       <〈刀劍神皇〉Lv5ヾ盾/SCOLOR=253> + <5万逐币/SCOLOR=250>           <点击打造|253#特殊属性：^-^250#全身刀刀切割总值5.0倍/@007>\
+<----------------------------------------------------------------------------------------------/SCOLOR=12>\
+<PlayImg:97:8:8:100:-57:-76:0:0>\
+<  ><ItemShow:<$STR(S$专属展示6)>:0:0:-27:1:0:1:50>   <〈龍王無雙〉Lv7ヾ盾/SCOLOR=254>       <〈真靈九變〉Lv6ヾ盾/SCOLOR=253> + <8万逐币/SCOLOR=250>           <点击打造|253#特殊属性：^-^250#全身刀刀切割总值6.0倍/@008>\
+<----------------------------------------------------------------------------------------------/SCOLOR=12>\
+<PlayImg:97:8:8:100:-57:-76:0:0>\
+<  ><ItemShow:<$STR(S$专属展示7)>:0:0:-27:1:0:1:50>   <〈金絲龍鱗〉Lv8ヾ盾/SCOLOR=254>       <〈龍王無雙〉Lv7ヾ盾/SCOLOR=253> + <10万逐币/SCOLOR=250>          <点击打造|253#特殊属性：^-^250#全身刀刀切割总值8.0倍/@009>\
+<----------------------------------------------------------------------------------------------/SCOLOR=12>\
+<PlayImg:97:8:8:100:-57:-76:0:0>\
+<  ><ItemShow:<$STR(S$专属展示8)>:0:0:-27:1:0:1:50>   <〈赤心巡天〉Lv9ヾ盾/SCOLOR=254>       <〈金絲龍鱗〉Lv8ヾ盾/SCOLOR=253> + <20万逐币/SCOLOR=250>          <点击打造|253#特殊属性：^-^250#全身刀刀切割总值10.0倍/@010>\
+<----------------------------------------------------------------------------------------------/SCOLOR=12>\ \
+
+
+[@003]
+#IF
+CHECKBAGSIZE 1
+#ACT
+#ELSEACT
+MESSAGEBOX [提示]：背包至少拥有一个空位！
+BREAK
+#IF
+CHECKGAMEGIRD < 10000
+#ACT
+MESSAGEBOX 你逐币不足[10000]点
+BREAK
+
+#IF
+CHECKITEM 〈神威亢天〉Lv1ヾ盾 1
+#ACT
+#ELSEACT
+MESSAGEBOX 你身上没有【〈神威亢天〉Lv1ヾ盾】。请领取Q群礼包在来合成！
+BREAK
+
+
+#IF
+CHECKGAMEGIRD > 9999
+CHECKITEM 〈神威亢天〉Lv1ヾ盾 1
+#ACT
+GAMEGIRD - 10000
+TAKE 〈神威亢天〉Lv1ヾ盾 1
+GIVE 〈魔神之隕〉Lv2ヾ盾 1
+SENDCENTERMSG 253 4 玩家「<$USERNAME>」成功打造了1个『〈魔神之隕〉Lv2ヾ盾』！ 1 5
+GOTO @main
+BREAK
+
+
+[@004]
+#IF
+CHECKBAGSIZE 1
+#ACT
+#ELSEACT
+MESSAGEBOX [提示]：背包至少拥有一个空位！
+BREAK
+#IF
+CHECKGAMEGIRD < 20000
+#ACT
+MESSAGEBOX 你逐币不足[20000]点
+BREAK
+
+#IF
+CHECKITEM 〈魔神之隕〉Lv2ヾ盾 1
+#ACT
+#ELSEACT
+MESSAGEBOX 你身上没有【〈神威亢天〉Lv1ヾ盾】。无法合成！
+BREAK
+
+
+#IF
+CHECKGAMEGIRD > 19999
+CHECKITEM 〈魔神之隕〉Lv2ヾ盾 1
+#ACT
+GAMEGIRD - 20000
+TAKE 〈魔神之隕〉Lv2ヾ盾 1
+GIVE 〈神雷天裁〉Lv3ヾ盾 1
+SENDCENTERMSG 253 4 玩家「<$USERNAME>」成功打造了1个『〈神雷天裁〉Lv3ヾ盾』！ 1 5
+GOTO @main
+BREAK
+
+
+
+[@005]
+#IF
+CHECKBAGSIZE 1
+#ACT
+#ELSEACT
+MESSAGEBOX [提示]：背包至少拥有一个空位！
+BREAK
+#IF
+CHECKGAMEGIRD < 30000
+#ACT
+MESSAGEBOX 你逐币不足[30000]点
+BREAK
+
+#IF
+CHECKITEM 〈神雷天裁〉Lv3ヾ盾 1
+#ACT
+#ELSEACT
+MESSAGEBOX 你身上没有【〈神雷天裁〉Lv3ヾ盾】。无法合成！
+BREAK
+
+
+#IF
+CHECKGAMEGIRD > 29999
+CHECKITEM 〈神雷天裁〉Lv3ヾ盾 1
+#ACT
+GAMEGIRD - 30000
+TAKE 〈神雷天裁〉Lv3ヾ盾 1
+GIVE 〈龍血戰神〉Lv4ヾ盾 1
+SENDCENTERMSG 253 4 玩家「<$USERNAME>」成功打造了1个『〈龍血戰神〉Lv4ヾ盾』！ 1 5
+GOTO @main
+BREAK
+
+
+
+[@006]
+#IF
+CHECKBAGSIZE 1
+#ACT
+#ELSEACT
+MESSAGEBOX [提示]：背包至少拥有一个空位！
+BREAK
+#IF
+CHECKGAMEGIRD < 40000
+#ACT
+MESSAGEBOX 你逐币不足[40000]点
+BREAK
+
+#IF
+CHECKITEM 〈龍血戰神〉Lv4ヾ盾 1
+#ACT
+#ELSEACT
+MESSAGEBOX 你身上没有【〈龍血戰神〉Lv4ヾ盾】。无法合成！
+BREAK
+
+
+#IF
+CHECKGAMEGIRD > 39999
+CHECKITEM 〈龍血戰神〉Lv4ヾ盾 1
+#ACT
+GAMEGIRD - 40000
+TAKE 〈龍血戰神〉Lv4ヾ盾 1
+GIVE 〈刀劍神皇〉Lv5ヾ盾 1
+SENDCENTERMSG 253 4 玩家「<$USERNAME>」成功打造了1个『〈刀劍神皇〉Lv5ヾ盾』！ 1 5
+GOTO @main
+BREAK
+
+
+[@007]
+#IF
+CHECKBAGSIZE 1
+#ACT
+#ELSEACT
+MESSAGEBOX [提示]：背包至少拥有一个空位！
+BREAK
+#IF
+CHECKGAMEGIRD < 50000
+#ACT
+MESSAGEBOX 你逐币不足[50000]点
+BREAK
+
+#IF
+CHECKITEM 〈刀劍神皇〉Lv5ヾ盾 1
+#ACT
+#ELSEACT
+MESSAGEBOX 你身上没有【〈刀劍神皇〉Lv5ヾ盾】。无法合成！
+BREAK
+
+
+#IF
+CHECKGAMEGIRD > 49999
+CHECKITEM 〈刀劍神皇〉Lv5ヾ盾 1
+#ACT
+GAMEGIRD - 50000
+TAKE 〈刀劍神皇〉Lv5ヾ盾 1
+GIVE 〈真靈九變〉Lv6ヾ盾 1
+SENDCENTERMSG 253 4 玩家「<$USERNAME>」成功打造了1个『〈真靈九變〉Lv6ヾ盾』！ 1 5
+GOTO @main
+BREAK
+
+
+
+[@008]
+#IF
+CHECKBAGSIZE 1
+#ACT
+#ELSEACT
+MESSAGEBOX [提示]：背包至少拥有一个空位！
+BREAK
+#IF
+CHECKGAMEGIRD < 80000
+#ACT
+MESSAGEBOX 你逐币不足[80000]点
+BREAK
+
+#IF
+CHECKITEM 〈真靈九變〉Lv6ヾ盾 1
+#ACT
+#ELSEACT
+MESSAGEBOX 你身上没有【〈真靈九變〉Lv6ヾ盾】。无法合成！
+BREAK
+
+
+#IF
+CHECKGAMEGIRD > 79999
+CHECKITEM 〈真靈九變〉Lv6ヾ盾 1
+#ACT
+GAMEGIRD - 80000
+TAKE 〈真靈九變〉Lv6ヾ盾 1
+GIVE 〈龍王無雙〉Lv7ヾ盾 1
+SENDCENTERMSG 253 4 玩家「<$USERNAME>」成功打造了1个『〈龍王無雙〉Lv7ヾ盾』！ 1 5
+GOTO @main
+BREAK
+
+
+
+[@009]
+#IF
+CHECKBAGSIZE 1
+#ACT
+#ELSEACT
+MESSAGEBOX [提示]：背包至少拥有一个空位！
+BREAK
+#IF
+CHECKGAMEGIRD < 100000
+#ACT
+MESSAGEBOX 你逐币不足[100000]点
+BREAK
+
+#IF
+CHECKITEM 〈龍王無雙〉Lv7ヾ盾 1
+#ACT
+#ELSEACT
+MESSAGEBOX 你身上没有【〈龍王無雙〉Lv7ヾ盾】。无法合成！
+BREAK
+
+
+#IF
+CHECKGAMEGIRD > 99999
+CHECKITEM 〈龍王無雙〉Lv7ヾ盾 1
+#ACT
+GAMEGIRD - 100000
+TAKE 〈龍王無雙〉Lv7ヾ盾 1
+GIVE 〈金絲龍鱗〉Lv8ヾ盾 1
+SENDCENTERMSG 253 4 玩家「<$USERNAME>」成功打造了1个『〈金絲龍鱗〉Lv8ヾ盾』！ 1 5
+GOTO @main
+BREAK
+
+
+
+[@010]
+#IF
+CHECKBAGSIZE 1
+#ACT
+#ELSEACT
+MESSAGEBOX [提示]：背包至少拥有一个空位！
+BREAK
+#IF
+CHECKGAMEGIRD < 200000
+#ACT
+MESSAGEBOX 你逐币不足[200000]点
+BREAK
+
+#IF
+CHECKITEM 〈金絲龍鱗〉Lv8ヾ盾 1
+#ACT
+#ELSEACT
+MESSAGEBOX 你身上没有【〈金絲龍鱗〉Lv8ヾ盾】。无法合成！
+BREAK
+
+
+#IF
+CHECKGAMEGIRD > 199999
+CHECKITEM 〈金絲龍鱗〉Lv8ヾ盾 1
+#ACT
+GAMEGIRD - 200000
+TAKE 〈金絲龍鱗〉Lv8ヾ盾 1
+GIVE 〈赤心巡天〉Lv9ヾ盾 1
+SENDCENTERMSG 253 4 玩家「<$USERNAME>」成功打造了1个『〈赤心巡天〉Lv9ヾ盾』！ 1 5
+GOTO @main
+BREAK
+
+
+

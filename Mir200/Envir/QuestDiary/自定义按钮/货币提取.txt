@@ -1,0 +1,325 @@
+[@提取货币]
+
+{
+#IF
+CHECKLEVELEX > 0
+#ACT
+OPENMERCHANTBIGDLG 101 617 0 4 0 -100 1 568 2
+#SAY
+\ \ \ \
+</AUTOCOLOR=0><PlayImg:101:690:10:100:-3:-3:0><逐币兑换说明：一个合理的服，要做到人人皆可终极.本服只要你有时间.你就是神./FCOLOR=253>\
+</AUTOCOLOR=0><----------------------------------------------------------------------------------------------/SCOLOR=12>\
+< /AUTOCOLOR=0><10W元宝兑换1000逐币/@001>           <50W元宝兑换5000逐币/@55>           <100W元宝兑换1W逐币/@002>\
+</AUTOCOLOR=0><----------------------------------------------------------------------------------------------/SCOLOR=12>\
+< /AUTOCOLOR=0><1000W元宝兑换10W逐币/@003>          <5000W元宝兑换50W逐币/@555>          <1.0亿元宝兑换100W逐币/@004>\
+</AUTOCOLOR=0><----------------------------------------------------------------------------------------------/SCOLOR=12>\
+< /AUTOCOLOR=0><10W战神币兑换10W逐币/@88>          <50W战神币兑换50W逐币/@5555>          <100W战神币兑换100W逐币/@888>\
+</AUTOCOLOR=0><----------------------------------------------------------------------------------------------/SCOLOR=12>\ \
+
+</AUTOCOLOR=0><PlayImg:101:690:10:100:-3:-3:0><战神币兑换说明：一个合理的服，要做到人人皆可终极.本服只要你有时间.你就是神./FCOLOR=250>\
+</AUTOCOLOR=0><----------------------------------------------------------------------------------------------/SCOLOR=12>\
+< /AUTOCOLOR=0><10W逐币兑换10W战神币/@77>          <50W逐币兑换50W战神币/@7777>          <100W逐币兑换100W战神币/@777>\
+</AUTOCOLOR=0><----------------------------------------------------------------------------------------------/SCOLOR=12>\ \
+
+</AUTOCOLOR=0><PlayImg:101:650:10:100:-3:-3:0><逐币提取说明：一个合理的服，要做到人人皆可终极.本服只要你有时间.你就是神./FCOLOR=70>\
+</AUTOCOLOR=0><----------------------------------------------------------------------------------------------/SCOLOR=12>\
+< /AUTOCOLOR=0><提取 1000逐币/@逐币5>                                                 <提取 5000逐币/@逐币6>\
+</AUTOCOLOR=0><----------------------------------------------------------------------------------------------/SCOLOR=12>\
+< /AUTOCOLOR=0><提取 10000逐币/@逐币7>                                                <提取 50000逐币/@逐币8>\
+</AUTOCOLOR=0><----------------------------------------------------------------------------------------------/SCOLOR=12>\
+< /AUTOCOLOR=0><提取 100000逐币/@逐币9>               <提取 200000逐币/@逐币90>                 <提取 500000逐币/@逐币10>\
+</AUTOCOLOR=0><----------------------------------------------------------------------------------------------/SCOLOR=12>\
+< /AUTOCOLOR=0><提取 1000000逐币/@逐币11>              <提取 2000000逐币/@逐币110>                <提取 5000000逐币/@逐币12>\
+</AUTOCOLOR=0><----------------------------------------------------------------------------------------------/SCOLOR=12>\
+\ \
+< /AUTOCOLOR=0><货币刷新/@reflush>       <元宝：/SCOLOR=254><$GAMEGOLD>         <逐币：/SCOLOR=254><$GAMEGIRD>         <战神币：/SCOLOR=254><$GAMEPOINT>\
+
+[@reflush]
+#IF
+#ACT
+GOTO @提取货币
+
+[@逐币12]
+#IF
+CHECKGAMEGIRD > 4999999
+#ACT
+GAMEGIRD - 5000000
+GIVE 5000000逐币
+SENDMSG 5 提取5000000逐币成功!
+GOTO @提取货币
+BREAK
+#ELSEACT
+MESSAGEBOX [兑换失败]：你的逐币不足5000000！
+BREAK
+
+[@逐币11]
+#IF
+CHECKGAMEGIRD > 999999
+#ACT
+GAMEGIRD - 1000000
+GIVE 1000000逐币
+SENDMSG 5 提取1000000逐币成功!
+GOTO @提取货币
+BREAK
+#ELSEACT
+MESSAGEBOX [兑换失败]：你的逐币不足1000000！
+BREAK
+
+[@逐币110]
+#IF
+CHECKGAMEGIRD > 1999999
+#ACT
+GAMEGIRD - 2000000
+GIVE 2000000逐币
+SENDMSG 5 提取2000000逐币成功!
+GOTO @提取货币
+BREAK
+#ELSEACT
+MESSAGEBOX [兑换失败]：你的逐币不足2000000！
+BREAK
+
+[@逐币10]
+#IF
+CHECKGAMEGIRD > 499999
+#ACT
+GAMEGIRD - 500000
+GIVE 500000逐币
+SENDMSG 5 提取500000逐币成功!
+GOTO @提取货币
+BREAK
+#ELSEACT
+MESSAGEBOX [兑换失败]：你的逐币不足500000！
+BREAK
+
+[@逐币9]
+#IF
+CHECKGAMEGIRD > 99999
+#ACT
+GAMEGIRD - 100000
+GIVE 100000逐币
+SENDMSG 5 提取100000逐币成功!
+GOTO @提取货币
+BREAK
+#ELSEACT
+MESSAGEBOX [兑换失败]：你的逐币不足100000！
+BREAK
+
+[@逐币90]
+#IF
+CHECKGAMEGIRD > 199999
+#ACT
+GAMEGIRD - 200000
+GIVE 200000逐币
+SENDMSG 5 提取200000逐币成功!
+GOTO @提取货币
+BREAK
+#ELSEACT
+MESSAGEBOX [兑换失败]：你的逐币不足200000！
+BREAK
+
+[@逐币8]
+#IF
+CHECKGAMEGIRD > 49999
+#ACT
+GAMEGIRD - 50000
+GIVE 50000逐币
+SENDMSG 5 提取50000逐币成功!
+GOTO @提取货币
+BREAK
+#ELSEACT
+MESSAGEBOX [兑换失败]：你的逐币不足50000！
+BREAK
+
+[@逐币7]
+#IF
+CHECKGAMEGIRD > 9999
+#ACT
+GAMEGIRD - 10000
+GIVE 10000逐币
+SENDMSG 5 提取10000逐币成功!
+GOTO @提取货币
+BREAK
+#ELSEACT
+MESSAGEBOX [兑换失败]：你的逐币不足10000！
+BREAK
+
+[@逐币6]
+#IF
+CHECKGAMEGIRD > 4999
+#ACT
+GAMEGIRD - 5000
+GIVE 5000逐币
+SENDMSG 5 提取5000逐币成功!
+GOTO @提取货币
+BREAK
+#ELSEACT
+MESSAGEBOX [兑换失败]：你的逐币不足5000！
+BREAK
+
+[@逐币5]
+#IF
+CHECKGAMEGIRD > 999
+#ACT
+GAMEGIRD - 1000
+GIVE 1000逐币
+SENDMSG 5 提取1000逐币成功!
+GOTO @提取货币
+BREAK
+#ELSEACT
+MESSAGEBOX [兑换失败]：你的逐币不足1000！
+BREAK
+
+[@888]
+#IF
+CHECKGAMEPOINT > 999999
+#ACT
+GAMEPOINT - 1000000
+GAMEGIRD + 1000000
+GOTO @提取货币
+BREAK
+#ELSEACT
+MESSAGEBOX \\　　　你当前的战神币不足！！
+BREAK
+
+
+[@777]
+#IF
+CHECKGAMEGIRD > 999999
+#ACT
+GAMEGIRD - 1000000
+GAMEPOINT + 1000000
+GOTO @提取货币
+BREAK
+#ELSEACT
+MESSAGEBOX \\　　　你当前的逐币不足！！
+BREAK
+
+[@88]
+#IF
+CHECKGAMEPOINT > 99999
+#ACT
+GAMEPOINT - 100000
+GAMEGIRD + 100000
+GOTO @提取货币
+BREAK
+#ELSEACT
+MESSAGEBOX \\　　　你当前的战神币不足！！
+
+[@5555]
+#IF
+CHECKGAMEPOINT > 499999
+#ACT
+GAMEPOINT - 500000
+GAMEGIRD + 500000
+GOTO @提取货币
+BREAK
+#ELSEACT
+MESSAGEBOX \\　　　你当前的战神币不足！！
+BREAK
+
+[@77]
+#IF
+CHECKGAMEGIRD > 99999
+#ACT
+GAMEGIRD - 100000
+GAMEPOINT + 100000
+GOTO @提取货币
+BREAK
+#ELSEACT
+MESSAGEBOX \\　　　你当前的逐币不足！！
+BREAK
+
+[@7777]
+#IF
+CHECKGAMEGIRD > 499999
+#ACT
+GAMEGIRD - 500000
+GAMEPOINT + 500000
+GOTO @提取货币
+BREAK
+#ELSEACT
+MESSAGEBOX \\　　　你当前的逐币不足！！
+BREAK
+
+
+[@001]
+#IF
+CHECKGAMEGOLD > 99999
+#ACT
+GAMEGOLD - 100000
+GAMEGIRD + 1000
+SENDMSG 5 兑换1000逐币成功!
+GOTO @提取货币
+BREAK
+#ELSEACT
+MESSAGEBOX [兑换失败]：你的元宝不足10W..！
+BREAK
+
+[@55]
+#IF
+CHECKGAMEGOLD > 499999
+#ACT
+GAMEGOLD - 500000
+GAMEGIRD + 5000
+SENDMSG 5 兑换5000逐币成功!
+GOTO @提取货币
+BREAK
+#ELSEACT
+MESSAGEBOX [兑换失败]：你的元宝不足50W..！
+BREAK
+
+[@002]
+#IF
+CHECKGAMEGOLD > 999999
+#ACT
+GAMEGOLD - 1000000
+GAMEGIRD + 10000
+SENDMSG 5 兑换10000逐币成功!
+GOTO @提取货币
+BREAK
+#ELSEACT
+MESSAGEBOX [兑换失败]：你的元宝不足1000000..！
+BREAK
+
+[@003]
+#IF
+CHECKGAMEGOLD > 9999999
+#ACT
+GAMEGOLD - 10000000
+GAMEGIRD + 100000
+SENDMSG 5 兑换100000逐币成功!
+GOTO @提取货币
+BREAK
+#ELSEACT
+MESSAGEBOX [兑换失败]：你的元宝不足10000000..！
+BREAK
+
+[@555]
+#IF
+CHECKGAMEGOLD > 49999999
+#ACT
+GAMEGOLD - 50000000
+GAMEGIRD + 500000
+SENDMSG 5 兑换500000逐币成功!
+GOTO @提取货币
+BREAK
+#ELSEACT
+MESSAGEBOX [兑换失败]：你的元宝不足50000000..！
+BREAK
+
+[@004]
+#IF
+CHECKGAMEGOLD > 99999999
+#ACT
+GAMEGOLD - 100000000
+GAMEGIRD + 1000000
+SENDMSG 5 兑换1000000逐币成功!
+GOTO @提取货币
+BREAK
+#ELSEACT
+MESSAGEBOX [兑换失败]：你的元宝不足100000000..！
+BREAK
+
+
+
+}

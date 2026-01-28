@@ -1,0 +1,1378 @@
+[@main]
+
+
+#IF
+CHECK [301] 1
+CHECK [302] 1
+CHECK [303] 1
+CHECK [304] 1
+CHECK [305] 1
+CHECK [306] 1
+NOT CHECKTITLE 名荡八荒
+#ACT
+CONFERTITLE 名荡八荒
+
+#IF
+CHECKTITLE  名荡八荒
+#ACT
+MOV S$激活状态 <><Img:27:101:530:270>
+#ELSEACT
+MOV S$激活状态 <><Img:26:101:530:270>
+
+#IF
+CHECK [301] 0
+#ACT
+MOV S$激活1 <><Img:0:102:40:54|^249#尚未提交^250#点击提交卡片/@辛彩儿>\
+#ELSEACT
+MOV S$激活1 <><PlayImg:102:1:9:150:40:54:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [302] 0
+#ACT
+MOV S$激活2 <><Img:10:102:160:54|^249#尚未激活^250#点击提交卡片/@淮空>\
+#ELSEACT
+MOV S$激活2 <><PlayImg:102:11:9:150:160:54:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [303] 0
+#ACT
+MOV S$激活3 <><Img:20:102:280:54|^249#尚未激活^250#点击提交卡片/@清莲女侠>\
+#ELSEACT
+MOV S$激活3 <><PlayImg:102:21:9:150:280:54:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [304] 0
+#ACT
+MOV S$激活4 <><Img:30:102:400:38|^249#尚未激活^250#点击提交卡片/@无心剑者>\
+#ELSEACT
+MOV S$激活4 <><PlayImg:102:31:9:150:400:38:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [305] 0
+#ACT
+MOV S$激活5 <><Img:40:102:520:6|^249#尚未激活^250#点击提交卡片/@夜千华>\
+#ELSEACT
+MOV S$激活5 <><PlayImg:102:41:9:150:520:6:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [306] 0
+#ACT
+MOV S$激活6 <><Img:50:102:640:-26|^249#尚未激活^250#点击提交卡片/@琉璃圣女>\
+#ELSEACT
+MOV S$激活6 <><PlayImg:102:51:9:150:640:-26:0:|^250#卡片已提交>\
+
+#IF
+#ACT
+OPENMERCHANTBIGDLG 101 59 0 4 0 -100 0
+#SAY
+<><PlayImg:101:59:24:100:-20:-52:0:0>\
+<><Img:83:101:520:-100>\
+<><Img:8:101:760:-10|/@关闭对话框>\
+<><Img:84:101:330:340>\
+<><Img:92:101:100:351>\
+<><Img:91:101:470:338|^250#名荡八荒：^-^253#人物体力值+300000^-^253#攻魔道+588>\
+<$STR(S$激活状态)>\
+;<><Img:26:101:530:270>\
+;<><Img:27:101:530:270>\
+<><ImgEx:101:53:54:55:325:310|/@下一页6>\
+<><ImgEx:101:56:57:58:405:294|/@下一页1>\
+
+<$STR(S$激活1)>
+;<><Img:0:102:40:54|^249#尚未提交^250#点击提交卡片/@辛彩儿>\
+;<><PlayImg:102:1:9:150:40:54:0:0|^250#卡片已提交>\
+
+<$STR(S$激活2)>
+;<><Img:10:102:160:54|^249#尚未激活^250#点击提交卡片/@淮空>\
+;<><PlayImg:102:11:9:150:160:54:0:0|^250#卡片已提交>\
+
+<$STR(S$激活3)>
+;<><Img:20:102:280:54|^249#尚未激活^250#点击提交卡片/@清莲女侠>\
+;<><PlayImg:102:21:9:150:280:54:0:0|^250#卡片已提交>\
+
+<$STR(S$激活4)>
+;<><Img:30:102:400:38|^249#尚未激活^250#点击提交卡片/@无心剑者>\
+;<><PlayImg:102:31:9:150:400:38:0:0|^250#卡片已提交>\
+
+<$STR(S$激活5)>
+;<><Img:40:102:520:6|^249#尚未激活^250#点击提交卡片/@夜千华>\
+;<><PlayImg:102:41:9:150:520:6:0:0|^250#卡片已提交>\
+
+<$STR(S$激活6)>
+;<><Img:50:102:640:-26|^249#尚未激活^250#点击提交卡片/@琉璃圣女>\
+;<><PlayImg:102:51:9:150:640:-26:0:|^250#卡片已提交>\
+
+[@辛彩儿]
+#IF
+CHECK [301] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 辛彩儿 1
+CHECK [301] 0
+#ACT
+TAKE 辛彩儿 1
+SET [301] 1
+USEBONUSPOINT 1 + 200
+USEBONUSPOINT 6 + 1000
+GOTO @main
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【辛彩儿】..
+BREAK
+
+
+[@淮空]
+#IF
+CHECK [302] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 淮空 1
+CHECK [302] 0
+#ACT
+TAKE 淮空 1
+SET [302] 1
+USEBONUSPOINT 1 + 200
+USEBONUSPOINT 6 + 1000
+GOTO @main
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【淮空】..
+BREAK
+
+
+[@清莲女侠]
+#IF
+CHECK [303] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 清莲女侠 1
+CHECK [303] 0
+#ACT
+TAKE 清莲女侠 1
+SET [303] 1
+USEBONUSPOINT 1 + 200
+USEBONUSPOINT 6 + 1000
+GOTO @main
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【清莲女侠】..
+BREAK
+
+
+[@无心剑者]
+#IF
+CHECK [304] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 无心剑者 1
+CHECK [304] 0
+#ACT
+TAKE 无心剑者 1
+SET [304] 1
+USEBONUSPOINT 1 + 200
+USEBONUSPOINT 6 + 1000
+GOTO @main
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【无心剑者】..
+BREAK
+
+
+
+[@夜千华]
+#IF
+CHECK [305] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 夜千华 1
+CHECK [305] 0
+#ACT
+TAKE 夜千华 1
+SET [305] 1
+USEBONUSPOINT 1 + 200
+USEBONUSPOINT 6 + 1000
+GOTO @main
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【夜千华】..
+BREAK
+
+
+[@琉璃圣女]
+#IF
+CHECK [306] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 琉璃圣女 1
+CHECK [306] 0
+#ACT
+TAKE 琉璃圣女 1
+SET [306] 1
+USEBONUSPOINT 1 + 200
+USEBONUSPOINT 6 + 1000
+GOTO @main
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【琉璃圣女】..
+BREAK
+
+[@下一页1]
+#IF
+CHECK [308] 1
+CHECK [309] 1
+CHECK [310] 1
+CHECK [311] 1
+CHECK [336] 1
+CHECK [337] 1
+NOT CHECKTITLE 超今冠古
+#ACT
+CONFERTITLE 超今冠古
+
+#IF
+CHECKTITLE  超今冠古
+#ACT
+MOV S$激活状态 <><Img:27:101:530:270>
+#ELSEACT
+MOV S$激活状态 <><Img:26:101:530:270>
+
+#IF
+CHECK [308] 0
+#ACT
+MOV S$激活1 <><Img:60:102:40:54|^249#尚未提交^250#点击提交卡片/@赵沧澜>\
+#ELSEACT
+MOV S$激活1 <><PlayImg:102:61:9:150:40:54:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [309] 0
+#ACT
+MOV S$激活2 <><Img:70:102:160:54|^249#尚未激活^250#点击提交卡片/@水长韵>\
+#ELSEACT
+MOV S$激活2 <><PlayImg:102:71:9:150:160:54:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [310] 0
+#ACT
+MOV S$激活3 <><Img:80:102:280:54|^249#尚未激活^250#点击提交卡片/@萧瑟刀侠>\
+#ELSEACT
+MOV S$激活3 <><PlayImg:102:81:9:150:280:54:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [311] 0
+#ACT
+MOV S$激活4 <><Img:90:102:400:38|^249#尚未激活^250#点击提交卡片/@海月仙女>\
+#ELSEACT
+MOV S$激活4 <><PlayImg:102:91:9:150:400:38:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [336] 0
+#ACT
+MOV S$激活5 <><Img:100:102:520:6|^249#尚未激活^250#点击提交卡片/@青衣符仙>\
+#ELSEACT
+MOV S$激活5 <><PlayImg:102:101:9:150:520:6:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [337] 0
+#ACT
+MOV S$激活6 <><Img:110:102:640:-26|^249#尚未激活^250#点击提交卡片/@狂雷剑仙>\
+#ELSEACT
+MOV S$激活6 <><PlayImg:102:111:9:150:640:-26:0:|^250#卡片已提交>\
+
+#IF
+#ACT
+#SAY
+<><PlayImg:101:59:24:100:-20:-52:0:0>\
+<><Img:83:101:520:-100>\
+<><Img:8:101:760:-10|/@关闭对话框>\
+<><Img:85:101:330:340>\
+<><Img:92:101:100:351>\
+<><Img:91:101:470:338|^250#超今冠古：^-^253#人物体力值+400000^-^253#攻魔道+888>\
+<$STR(S$激活状态)>\
+<><ImgEx:101:53:54:55:325:310|/@main>\
+<><ImgEx:101:56:57:58:405:294|/@下一页2>\
+<$STR(S$激活1)>
+<$STR(S$激活2)>
+<$STR(S$激活3)>
+<$STR(S$激活4)>
+<$STR(S$激活5)>
+<$STR(S$激活6)>
+
+[@赵沧澜]
+#IF
+CHECK [308] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 赵沧澜 1
+CHECK [308] 0
+#ACT
+TAKE 赵沧澜 1
+SET [308] 1
+USEBONUSPOINT 1 + 300
+USEBONUSPOINT 6 + 3000
+GOTO @下一页1
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【赵沧澜】..
+BREAK
+
+
+[@水长韵]
+#IF
+CHECK [309] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 水长韵 1
+CHECK [309] 0
+#ACT
+TAKE 水长韵 1
+SET [309] 1
+USEBONUSPOINT 1 + 300
+USEBONUSPOINT 6 + 3000
+GOTO @下一页1
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【水长韵】..
+BREAK
+
+
+[@萧瑟刀侠]
+#IF
+CHECK [310] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 萧瑟刀侠 1
+CHECK [310] 0
+#ACT
+TAKE 萧瑟刀侠 1
+SET [310] 1
+USEBONUSPOINT 1 + 300
+USEBONUSPOINT 6 + 3000
+GOTO @下一页1
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【萧瑟刀侠】..
+BREAK
+
+
+[@海月仙女]
+#IF
+CHECK [311] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 海月仙女 1
+CHECK [311] 0
+#ACT
+TAKE 海月仙女 1
+SET [311] 1
+USEBONUSPOINT 1 + 300
+USEBONUSPOINT 6 + 3000
+GOTO @下一页1
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【海月仙女】..
+BREAK
+
+
+[@青衣符仙]
+#IF
+CHECK [336] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+
+#IF
+CHECKITEM 青衣符仙 1
+CHECK [336] 0
+#ACT
+TAKE 青衣符仙 1
+SET [336] 1
+USEBONUSPOINT 1 + 300
+USEBONUSPOINT 6 + 3000
+GOTO  @下一页1
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【青衣符仙】..
+BREAK
+
+
+[@狂雷剑仙]
+#IF
+CHECK [337] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+
+#IF
+CHECKITEM 狂雷剑仙 1
+CHECK [337] 0
+#ACT
+TAKE 狂雷剑仙 1
+SET [337] 1
+USEBONUSPOINT 1 + 300
+USEBONUSPOINT 6 + 3000
+GOTO  @下一页1
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【狂雷剑仙】..
+BREAK
+
+
+[@下一页2]
+#IF
+CHECK [312] 1
+CHECK [313] 1
+CHECK [314] 1
+CHECK [315] 1
+CHECK [316] 1
+CHECK [317] 1
+NOT CHECKTITLE 至高无上
+#ACT
+CONFERTITLE 至高无上
+
+#IF
+CHECKTITLE  至高无上
+#ACT
+MOV S$激活状态 <><Img:27:101:530:270>
+#ELSEACT
+MOV S$激活状态 <><Img:26:101:530:270>
+
+#IF
+CHECK [312] 0
+#ACT
+MOV S$激活1 <><Img:120:102:40:54|^249#尚未提交^250#点击提交卡片/@林啸>\
+#ELSEACT
+MOV S$激活1 <><PlayImg:102:121:9:150:40:54:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [313] 0
+#ACT
+MOV S$激活2 <><Img:130:102:160:54|^249#尚未激活^250#点击提交卡片/@墨允>\
+#ELSEACT
+MOV S$激活2 <><PlayImg:102:131:9:150:160:54:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [314] 0
+#ACT
+MOV S$激活3 <><Img:140:102:280:54|^249#尚未激活^250#点击提交卡片/@冷心冰女>\
+#ELSEACT
+MOV S$激活3 <><PlayImg:102:141:9:150:280:54:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [315] 0
+#ACT
+MOV S$激活4 <><Img:150:102:400:38|^249#尚未激活^250#点击提交卡片/@雷霆拳师>\
+#ELSEACT
+MOV S$激活4 <><PlayImg:102:151:9:150:400:38:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [316] 0
+#ACT
+MOV S$激活5 <><Img:160:102:520:6|^249#尚未激活^250#点击提交卡片/@怒意战仙>\
+#ELSEACT
+MOV S$激活5 <><PlayImg:102:161:9:150:520:6:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [317] 0
+#ACT
+MOV S$激活6 <><Img:170:102:640:-26|^249#尚未激活^250#点击提交卡片/@魅体情仙>\
+#ELSEACT
+MOV S$激活6 <><PlayImg:102:171:9:150:640:-26:0:|^250#卡片已提交>\
+
+#IF
+#ACT
+#SAY
+<><PlayImg:101:59:24:100:-20:-52:0:0>\
+<><Img:83:101:520:-100>\
+<><Img:8:101:760:-10|/@关闭对话框>\
+<><Img:86:101:330:340>\
+<><Img:92:101:100:351>\
+<><Img:91:101:470:338|^250#至高无上：^-^253#人物体力值+600000^-^253#攻魔道+1288>\
+<$STR(S$激活状态)>\
+<><ImgEx:101:53:54:55:325:310|/@下一页1>\
+<><ImgEx:101:56:57:58:405:294|/@下一页3>\
+<$STR(S$激活1)>
+<$STR(S$激活2)>
+<$STR(S$激活3)>
+<$STR(S$激活4)>
+<$STR(S$激活5)>
+<$STR(S$激活6)>
+
+[@林啸]
+#IF
+CHECK [312] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 林啸 1
+CHECK [312] 0
+#ACT
+TAKE 林啸 1
+SET [312] 1
+USEBONUSPOINT 1 + 400
+USEBONUSPOINT 6 + 4000
+GOTO @下一页2
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【林啸】..
+BREAK
+
+[@墨允]
+#IF
+CHECK [313] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 墨允 1
+CHECK [313] 0
+#ACT
+TAKE 墨允 1
+SET [313] 1
+USEBONUSPOINT 1 + 400
+USEBONUSPOINT 6 + 4000
+GOTO @下一页2
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【墨允】..
+BREAK
+
+
+
+[@冷心冰女]
+#IF
+CHECK [314] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 冷心冰女 1
+CHECK [314] 0
+#ACT
+TAKE 冷心冰女 1
+SET [314] 1
+USEBONUSPOINT 1 + 400
+USEBONUSPOINT 6 + 4000
+GOTO @下一页2
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【冷心冰女】..
+BREAK
+
+
+
+
+[@雷霆拳师]
+#IF
+CHECK [315] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 雷霆拳师 1
+CHECK [315] 0
+#ACT
+TAKE 雷霆拳师 1
+SET [315] 1
+USEBONUSPOINT 1 + 400
+USEBONUSPOINT 6 + 4000
+GOTO @下一页2
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【雷霆拳师】..
+BREAK
+
+
+[@怒意战仙]
+#IF
+CHECK [316] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 怒意战仙 1
+CHECK [316] 0
+#ACT
+TAKE 怒意战仙 1
+SET [316] 1
+USEBONUSPOINT 1 + 200
+USEBONUSPOINT 6 + 4000
+GOTO @下一页2
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【怒意战仙】..
+BREAK
+
+
+
+[@魅体情仙]
+#IF
+CHECK [317] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 魅体情仙 1
+CHECK [317] 0
+#ACT
+TAKE 魅体情仙 1
+SET [317] 1
+USEBONUSPOINT 1 + 400
+USEBONUSPOINT 6 + 4000
+GOTO @下一页2
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【魅体情仙】..
+BREAK
+
+
+
+[@下一页3]
+#IF
+CHECK [318] 1
+CHECK [319] 1
+CHECK [320] 1
+CHECK [321] 1
+CHECK [322] 1
+CHECK [323] 1
+NOT CHECKTITLE 唯我独醉
+#ACT
+CONFERTITLE 唯我独醉
+
+#IF
+CHECKTITLE  唯我独醉
+#ACT
+MOV S$激活状态 <><Img:27:101:530:270>
+#ELSEACT
+MOV S$激活状态 <><Img:26:101:530:270>
+
+#IF
+CHECK [318] 0
+#ACT
+MOV S$激活1 <><Img:180:102:40:54|^249#尚未提交^250#点击提交卡片/@萧无哲>\
+#ELSEACT
+MOV S$激活1 <><PlayImg:102:181:9:150:40:54:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [319] 0
+#ACT
+MOV S$激活2 <><Img:190:102:160:54|^249#尚未激活^250#点击提交卡片/@风柔仙女>\
+#ELSEACT
+MOV S$激活2 <><PlayImg:102:191:9:150:160:54:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [320] 0
+#ACT
+MOV S$激活3 <><Img:200:102:280:54|^249#尚未激活^250#点击提交卡片/@苍龙仙主>\
+#ELSEACT
+MOV S$激活3 <><PlayImg:102:201:9:150:280:54:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [321] 0
+#ACT
+MOV S$激活4 <><Img:210:102:400:38|^249#尚未激活^250#点击提交卡片/@封炎心>\
+#ELSEACT
+MOV S$激活4 <><PlayImg:102:211:9:150:400:38:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [322] 0
+#ACT
+MOV S$激活5 <><Img:220:102:520:6|^249#尚未激活^250#点击提交卡片/@藏刃炎锋>\
+#ELSEACT
+MOV S$激活5 <><PlayImg:102:221:9:150:520:6:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [323] 0
+#ACT
+MOV S$激活6 <><Img:230:102:640:-26|^249#尚未激活^250#点击提交卡片/@尘沙刺仙>\
+#ELSEACT
+MOV S$激活6 <><PlayImg:102:231:9:150:640:-26:0:|^250#卡片已提交>\
+
+#IF
+#ACT
+#SAY
+<><PlayImg:101:59:24:100:-20:-52:0:0>\
+<><Img:83:101:520:-100>\
+<><Img:8:101:760:-10|/@关闭对话框>\
+<><Img:87:101:330:340>\
+<><Img:92:101:100:351>\
+<><Img:91:101:470:338|^250#唯我独醉：^-^253#人物体力值+800000^-^253#攻魔道+1588>\
+<$STR(S$激活状态)>\
+<><ImgEx:101:53:54:55:325:310|/@下一页2>\
+<><ImgEx:101:56:57:58:405:294|/@下一页4>\
+<$STR(S$激活1)>
+<$STR(S$激活2)>
+<$STR(S$激活3)>
+<$STR(S$激活4)>
+<$STR(S$激活5)>
+<$STR(S$激活6)>
+
+[@萧无哲]
+#IF
+CHECK [318] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 萧无哲 1
+CHECK [318] 0
+#ACT
+TAKE 萧无哲 1
+SET [318] 1
+USEBONUSPOINT 1 + 500
+USEBONUSPOINT 6 + 5000
+GOTO @下一页3
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【萧无哲】..
+BREAK
+
+[@风柔仙女]
+#IF
+CHECK [319] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 风柔仙女 1
+CHECK [319] 0
+#ACT
+TAKE 风柔仙女 1
+SET [319] 1
+USEBONUSPOINT 1 + 500
+USEBONUSPOINT 6 + 5000
+GOTO @下一页3
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【风柔仙女】..
+BREAK
+
+
+
+[@苍龙仙主]
+#IF
+CHECK [320] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 苍龙仙主 1
+CHECK [320] 0
+#ACT
+TAKE 苍龙仙主 1
+SET [320] 1
+USEBONUSPOINT 1 + 500
+USEBONUSPOINT 6 + 5000
+GOTO @下一页3
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【苍龙仙主】..
+BREAK
+
+
+
+[@封炎心]
+#IF
+CHECK [321] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 封炎心 1
+CHECK [321] 0
+#ACT
+TAKE 封炎心 1
+SET [321] 1
+USEBONUSPOINT 1 + 500
+USEBONUSPOINT 6 + 5000
+GOTO @下一页3
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【封炎心】..
+BREAK
+
+
+
+[@藏刃炎锋]
+#IF
+CHECK [322] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 藏刃炎锋 1
+CHECK [322] 0
+#ACT
+TAKE 藏刃炎锋 1
+SET [322] 1
+USEBONUSPOINT 1 + 500
+USEBONUSPOINT 6 + 5000
+GOTO @下一页3
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【藏刃炎锋】..
+BREAK
+
+
+
+[@尘沙刺仙]
+#IF
+CHECK [323] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 尘沙刺仙 1
+CHECK [323] 0
+#ACT
+TAKE 尘沙刺仙 1
+SET [323] 1
+USEBONUSPOINT 1 + 500
+USEBONUSPOINT 6 + 5000
+GOTO @下一页3
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【尘沙刺仙】..
+BREAK
+
+
+
+[@下一页4]
+#IF
+CHECK [324] 1
+CHECK [325] 1
+CHECK [326] 1
+CHECK [327] 1
+NOT CHECKTITLE 举世无双
+#ACT
+CONFERTITLE 举世无双
+
+#IF
+CHECKTITLE  举世无双
+#ACT
+MOV S$激活状态 <><Img:27:101:530:270>
+#ELSEACT
+MOV S$激活状态 <><Img:26:101:530:270>
+
+#IF
+#ACT
+MOV S$激活1 <>\
+
+#IF
+CHECK [324] 0
+#ACT
+MOV S$激活2 <><Img:240:102:120:54|^249#尚未激活^250#点击提交卡片/@白发战神>\
+#ELSEACT
+MOV S$激活2 <><PlayImg:102:241:9:150:120:54:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [325] 0
+#ACT
+MOV S$激活3 <><Img:250:102:260:54|^249#尚未激活^250#点击提交卡片/@浮生神帝>\
+#ELSEACT
+MOV S$激活3 <><PlayImg:102:251:9:150:260:54:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [326] 0
+#ACT
+MOV S$激活4 <><Img:260:102:420:38|^249#尚未激活^250#点击提交卡片/@河洛天女>\
+#ELSEACT
+MOV S$激活4 <><PlayImg:102:261:9:150:420:38:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [327] 0
+#ACT
+MOV S$激活5 <><Img:270:102:560:6|^249#尚未激活^250#点击提交卡片/@墨龙神君>\
+#ELSEACT
+MOV S$激活5 <><PlayImg:102:271:9:150:560:6:0:0|^250#卡片已提交>\
+
+#IF
+#ACT
+#SAY
+<><PlayImg:101:59:24:100:-20:-52:0:0>\
+<><Img:83:101:520:-100>\
+<><Img:8:101:760:-10|/@关闭对话框>\
+<><Img:88:101:330:340>\
+<><Img:92:101:100:351>\
+<><Img:91:101:470:338|^250#举世无双：^-^253#人物体力值+1000000^-^253#攻魔道+1888>\
+<$STR(S$激活状态)>\
+<><ImgEx:101:53:54:55:325:310|/@下一页3>\
+<><ImgEx:101:56:57:58:405:294|/@下一页5>\
+<$STR(S$激活1)>
+<$STR(S$激活2)>
+<$STR(S$激活3)>
+<$STR(S$激活4)>
+<$STR(S$激活5)>
+
+[@白发战神]
+#IF
+CHECK [324] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 白发战神 1
+CHECK [324] 0
+#ACT
+TAKE 白发战神 1
+SET [324] 1
+USEBONUSPOINT 1 + 600
+USEBONUSPOINT 6 + 6000
+GOTO @下一页4
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【白发战神】..
+BREAK
+
+[@浮生神帝]
+#IF
+CHECK [325] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 浮生神帝 1
+CHECK [325] 0
+#ACT
+TAKE 浮生神帝 1
+SET [325] 1
+USEBONUSPOINT 1 + 600
+USEBONUSPOINT 6 + 6000
+GOTO @下一页4
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【浮生神帝】..
+BREAK
+
+[@河洛天女]
+#IF
+CHECK [326] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 河洛天女 1
+CHECK [326] 0
+#ACT
+TAKE 河洛天女 1
+SET [326] 1
+USEBONUSPOINT 1 + 600
+USEBONUSPOINT 6 + 6000
+GOTO @下一页4
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【河洛天女】..
+BREAK
+
+[@墨龙神君]
+#IF
+CHECK [327] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 墨龙神君 1
+CHECK [327] 0
+#ACT
+TAKE 墨龙神君 1
+SET [327] 1
+USEBONUSPOINT 1 + 600
+USEBONUSPOINT 6 + 6000
+GOTO @下一页4
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【墨龙神君】..
+BREAK
+
+
+[@下一页5]
+#IF
+CHECK [328] 1
+CHECK [329] 1
+CHECK [330] 1
+CHECK [331] 1
+NOT CHECKTITLE 天下第一
+#ACT
+CONFERTITLE 天下第一
+
+#IF
+CHECKTITLE  天下第一
+#ACT
+MOV S$激活状态 <><Img:27:101:530:270>
+#ELSEACT
+MOV S$激活状态 <><Img:26:101:530:270>
+
+#IF
+#ACT
+MOV S$激活1 <>\
+
+#IF
+CHECK [328] 0
+#ACT
+MOV S$激活2 <><Img:280:102:120:54|^249#尚未激活^250#点击提交卡片/@绝天神王>\
+#ELSEACT
+MOV S$激活2 <><PlayImg:102:281:9:150:120:54:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [329] 0
+#ACT
+MOV S$激活3 <><Img:290:102:260:54|^249#尚未激活^250#点击提交卡片/@太阴女神>\
+#ELSEACT
+MOV S$激活3 <><PlayImg:102:291:9:150:260:54:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [330] 0
+#ACT
+MOV S$激活4 <><Img:300:102:420:38|^249#尚未激活^250#点击提交卡片/@无念女帝>\
+#ELSEACT
+MOV S$激活4 <><PlayImg:102:301:9:150:420:38:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [331] 0
+#ACT
+MOV S$激活5 <><Img:310:102:560:6|^249#尚未激活^250#点击提交卡片/@星河神女>\
+#ELSEACT
+MOV S$激活5 <><PlayImg:102:311:9:150:560:6:0:0|^250#卡片已提交>\
+
+#IF
+#ACT
+#SAY
+<><PlayImg:101:59:24:100:-20:-52:0:0>\
+<><Img:83:101:520:-100>\
+<><Img:8:101:760:-10|/@关闭对话框>\
+<><Img:89:101:330:340>\
+<><Img:92:101:100:351>\
+<><Img:91:101:470:338|^250#天下第一：^-^253#人物体力值+1200000^-^253#攻魔道+2288>\
+<$STR(S$激活状态)>\
+<><ImgEx:101:53:54:55:325:310|/@下一页4>\
+<><ImgEx:101:56:57:58:405:294|/@下一页6>\
+<$STR(S$激活1)>
+<$STR(S$激活2)>
+<$STR(S$激活3)>
+<$STR(S$激活4)>
+<$STR(S$激活5)>
+
+[@绝天神王]
+#IF
+CHECK [328] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 绝天神王 1
+CHECK [328] 0
+#ACT
+TAKE 绝天神王 1
+SET [328] 1
+USEBONUSPOINT 1 + 800
+USEBONUSPOINT 6 + 8000
+GOTO @下一页5
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【绝天神王】..
+BREAK
+
+[@太阴女神]
+#IF
+CHECK [329] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 太阴女神 1
+CHECK [329] 0
+#ACT
+TAKE 太阴女神 1
+SET [329] 1
+USEBONUSPOINT 1 + 800
+USEBONUSPOINT 6 + 8000
+GOTO @下一页5
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【太阴女神】..
+BREAK
+
+[@无念女帝]
+#IF
+CHECK [330] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 无念女帝 1
+CHECK [330] 0
+#ACT
+TAKE 无念女帝 1
+SET [330] 1
+USEBONUSPOINT 1 + 800
+USEBONUSPOINT 6 + 8000
+GOTO @下一页5
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【无念女帝】..
+BREAK
+
+
+[@星河神女]
+#IF
+CHECK [331] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 星河神女 1
+CHECK [331] 0
+#ACT
+TAKE 星河神女 1
+SET [331] 1
+USEBONUSPOINT 1 + 800
+USEBONUSPOINT 6 + 8000
+GOTO @下一页5
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【星河神女】..
+BREAK
+
+
+
+[@下一页6]
+#IF
+CHECK [332] 1
+CHECK [333] 1
+CHECK [334] 1
+CHECK [335] 1
+NOT CHECKTITLE 无敌真寂寞
+#ACT
+CONFERTITLE 无敌真寂寞
+
+#IF
+CHECKTITLE  无敌真寂寞
+#ACT
+MOV S$激活状态 <><Img:27:101:530:270>
+#ELSEACT
+MOV S$激活状态 <><Img:26:101:530:270>
+
+#IF
+#ACT
+MOV S$激活1 <>\
+
+#IF
+CHECK [332] 0
+#ACT
+MOV S$激活2 <><Img:320:102:120:54|^249#尚未激活^250#点击提交卡片/@大帝法相>\
+#ELSEACT
+MOV S$激活2 <><PlayImg:102:321:9:150:120:54:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [333] 0
+#ACT
+MOV S$激活3 <><Img:330:102:260:54|^249#尚未激活^250#点击提交卡片/@镇天道剑>\
+#ELSEACT
+MOV S$激活3 <><PlayImg:102:331:9:150:260:54:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [334] 0
+#ACT
+MOV S$激活4 <><Img:340:102:420:38|^249#尚未激活^250#点击提交卡片/@极道超脱>\
+#ELSEACT
+MOV S$激活4 <><PlayImg:102:341:9:150:420:38:0:0|^250#卡片已提交>\
+
+#IF
+CHECK [335] 0
+#ACT
+MOV S$激活5 <><Img:350:102:560:6|^249#尚未激活^250#点击提交卡片/@诡异始祖>\
+#ELSEACT
+MOV S$激活5 <><PlayImg:102:351:9:150:560:6:0:0|^250#卡片已提交>\
+
+#IF
+#ACT
+#SAY
+<><PlayImg:101:59:24:100:-20:-52:0:0>\
+<><Img:83:101:520:-100>\
+<><Img:8:101:760:-10|/@关闭对话框>\
+<><Img:90:101:330:340>\
+<><Img:92:101:100:351>\
+<><Img:91:101:470:338|^250#无敌真寂寞：^-^253#人物体力值+1500000^-^253#攻魔道+2888>\
+<$STR(S$激活状态)>\
+<><ImgEx:101:53:54:55:325:310|/@下一页5>\
+<><ImgEx:101:56:57:58:405:294|/@main>\
+<$STR(S$激活1)>
+<$STR(S$激活2)>
+<$STR(S$激活3)>
+<$STR(S$激活4)>
+<$STR(S$激活5)>
+
+[@大帝法相]
+#IF
+CHECK [332] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 大帝法相 1
+CHECK [332] 0
+#ACT
+TAKE 大帝法相 1
+SET [332] 1
+USEBONUSPOINT 1 + 1000
+USEBONUSPOINT 6 + 10000
+GOTO @下一页6
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【大帝法相】..
+BREAK
+
+
+
+[@镇天道剑]
+#IF
+CHECK [333] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+
+#IF
+CHECKITEM 镇天道剑 1
+CHECK [333] 0
+#ACT
+TAKE 镇天道剑 1
+SET [333] 1
+USEBONUSPOINT 1 + 1000
+USEBONUSPOINT 6 + 10000
+GOTO @下一页6
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【镇天道剑】..
+BREAK
+
+
+[@极道超脱]
+#IF
+CHECK [334] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+#IF
+CHECKITEM 极道超脱 1
+CHECK [334] 0
+#ACT
+TAKE 极道超脱 1
+SET [334] 1
+USEBONUSPOINT 1 + 1000
+USEBONUSPOINT 6 + 10000
+GOTO @下一页6
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\极道超脱..
+BREAK
+
+
+
+
+[@诡异始祖]
+#IF
+CHECK [335] 1
+#ACT
+MESSAGEBOX 友情提示:\提交失败，图卡已经提交过！
+BREAK
+
+
+#IF
+CHECKITEM 诡异始祖 1
+CHECK [335] 0
+#ACT
+TAKE 诡异始祖 1
+SET [335] 1
+USEBONUSPOINT 1 + 1000
+USEBONUSPOINT 6 + 10000
+GOTO @下一页6
+BREAK
+#ELSEACT
+MESSAGEBOX 友情提示:\您没有人物图卡【诡异始祖】..
+BREAK
+
+[@关闭对话框]
+#IF
+#ACT
+close
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

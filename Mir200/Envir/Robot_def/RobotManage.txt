@@ -1,0 +1,555 @@
+[@每日清理]
+#IF
+#ACT
+ClearNameList ..\QuestDiary\公益捐献\封顶玩家列表.txt
+ClearNameList ..\QuestDiary\公益捐献\公益捐献记录.txt
+ClearNameList ..\QuestDiary\公益捐献\公益捐献排名.txt
+LoadVar Global 封顶人数 ..\QuestDiary\公益捐献\公益捐献记录.txt
+LoadVar Global 富豪玩家1 ..\QuestDiary\公益捐献\公益捐献记录.txt
+LoadVar Global 富豪玩家2 ..\QuestDiary\公益捐献\公益捐献记录.txt
+LoadVar Global 富豪玩家3 ..\QuestDiary\公益捐献\公益捐献记录.txt
+LoadVar Global 富豪数据1 ..\QuestDiary\公益捐献\公益捐献记录.txt
+LoadVar Global 富豪数据2 ..\QuestDiary\公益捐献\公益捐献记录.txt
+LoadVar Global 富豪数据3 ..\QuestDiary\公益捐献\公益捐献记录.txt
+
+SendCenterMsg 251 249 温馨提示:北京时间00:00,富豪捐献已清理 1 30
+SendCenterMsg 251 249 温馨提示:北京时间00:00,富豪捐献已清理 1 30
+SendCenterMsg 251 249 温馨提示:北京时间00:00,富豪捐献已清理 1 30
+
+GuildNoticeMsg 251 248 本区【富豪捐献】排名已清除！
+GuildNoticeMsg 251 248 本区【富豪捐献】排名已清除！
+GMEXECUTE 开始提问 @清除爵位排名
+BREAK 
+
+[@排行刷新]
+#IF
+#ACT
+GMEXECUTE 开始提问 @排行整理
+
+[@活动计时]
+#IF
+#ACT
+INC G11 1
+INC G12 1
+INC G13 1
+
+#IF
+EQUAL G11 60
+#ACT
+MOV G11 0
+GMEXECUTE 开始提问 @逐鹿中原装备弹窗
+MonGenEx 必爆装备活动 20 22 ●●远古巨龙★新区装备·BOSS 1 1 0 249
+SENDMOVEMSG 0 251 249 300 2 福利装备BOSS活动开始了，必爆大量高级装备BOSS已刷新！！！
+SENDMOVEMSG 0 251 249 330 2 福利装备BOSS活动开始了，必爆大量高级装备BOSS已刷新！！！
+SENDMOVEMSG 0 251 249 360 2 福利装备BOSS活动开始了，必爆大量高级装备BOSS已刷新！！！
+SENDMOVEMSG 0 251 249 390 2 福利装备BOSS活动开始了，必爆大量高级装备BOSS已刷新！！！
+
+#IF
+EQUAL G12 120
+#ACT
+MOV G12 0
+GMEXECUTE 开始提问 @逐鹿中原材料弹窗
+MonGenEx 必爆材料活动 20 22 ●●焱煌骏翼★新区材料·BOSS 1 1 0 249
+SENDMOVEMSG 0 251 249 300 2 福利材料BOSS活动开始了，必爆大量高级材料BOSS已刷新！！！
+SENDMOVEMSG 0 251 249 330 2 福利材料BOSS活动开始了，必爆大量高级材料BOSS已刷新！！！
+SENDMOVEMSG 0 251 249 360 2 福利材料BOSS活动开始了，必爆大量高级材料BOSS已刷新！！！
+SENDMOVEMSG 0 251 249 390 2 福利材料BOSS活动开始了，必爆大量高级材料BOSS已刷新！！！
+
+;====================================================================================================================
+
+[@世界BOSS刷新倒计时]
+#IF
+LARGE G81 0
+#ACT
+DEC G81 1
+#IF
+LARGE G82 0
+#ACT
+DEC G82 1
+#IF
+LARGE G83 0
+#ACT
+DEC G83 1
+#IF
+LARGE G84 0
+#ACT
+DEC G84 1
+#IF
+LARGE G85 0
+#ACT
+DEC G85 1
+
+#IF
+EQUAL G81 0
+#ACT
+GOTO @检测BOSS01刷新
+
+#IF
+EQUAL G82 0
+#ACT
+GOTO @检测BOSS02刷新
+
+#IF
+EQUAL G83 0
+#ACT
+GOTO @检测BOSS03刷新
+
+#IF
+EQUAL G84 0
+#ACT
+GOTO @检测BOSS04刷新
+
+#IF
+EQUAL G85 0
+#ACT
+GOTO @检测BOSS05刷新
+
+[@检测BOSS01刷新]
+#IF
+CHECKRANGEMONCOUNTEX 11 上古金蟾[世界BOSS] 351 239 10 < 1
+#ACT
+MOV G81 60
+MonGenEx 11 351 239 上古金蟾[世界BOSS] 1 1 0 249
+SENDMOVEMSG 1 253 255 350 2 <世界BOSS/FCOLOR=250><提示：/FCOLOR=251><上古金蟾[世界BOSS]/FCOLOR=253><已出现在/FCOLOR=254><(/FCOLOR=69><白日门/FCOLOR=249><)/FCOLOR=69>！！
+SENDMOVEMSG 1 253 255 320 2 <世界BOSS/FCOLOR=250><提示：/FCOLOR=251><上古金蟾[世界BOSS]/FCOLOR=253><已出现在/FCOLOR=254><(/FCOLOR=69><白日门/FCOLOR=249><)/FCOLOR=69>！！
+SENDMOVEMSG 1 253 255 290 2 <世界BOSS/FCOLOR=250><提示：/FCOLOR=251><上古金蟾[世界BOSS]/FCOLOR=253><已出现在/FCOLOR=254><(/FCOLOR=69><白日门/FCOLOR=249><)/FCOLOR=69>！！
+
+[@检测BOSS02刷新]
+#IF
+CHECKRANGEMONCOUNTEX 5 冰火魔兽[世界BOSS] 373 155 10 < 1
+#ACT
+MOV G82 120
+MonGenEx 5 373 155 冰火魔兽[世界BOSS] 1 1 0 249
+SENDMOVEMSG 1 253 255 350 2 <世界BOSS/FCOLOR=250><提示：/FCOLOR=251><冰火魔兽[世界BOSS]/FCOLOR=253><已出现在/FCOLOR=254><(/FCOLOR=69><苍月岛/FCOLOR=249><)/FCOLOR=69>！！
+SENDMOVEMSG 1 253 255 320 2 <世界BOSS/FCOLOR=250><提示：/FCOLOR=251><冰火魔兽[世界BOSS]/FCOLOR=253><已出现在/FCOLOR=254><(/FCOLOR=69><苍月岛/FCOLOR=249><)/FCOLOR=69>！！
+SENDMOVEMSG 1 253 255 290 2 <世界BOSS/FCOLOR=250><提示：/FCOLOR=251><冰火魔兽[世界BOSS]/FCOLOR=253><已出现在/FCOLOR=254><(/FCOLOR=69><苍月岛/FCOLOR=249><)/FCOLOR=69>！！
+
+[@检测BOSS03刷新]
+#IF
+CHECKRANGEMONCOUNTEX 0 噬金虫王[世界BOSS] 315 476 10 < 1
+#ACT
+MOV G83 180
+MonGenEx 0 315 476 噬金虫王[世界BOSS] 1 1 0 249
+SENDMOVEMSG 1 253 255 350 2 <世界BOSS/FCOLOR=250><提示：/FCOLOR=251><噬金虫王[世界BOSS]/FCOLOR=253><已出现在/FCOLOR=254><(/FCOLOR=69><比奇城/FCOLOR=249><)/FCOLOR=69>！！
+SENDMOVEMSG 1 253 255 320 2 <世界BOSS/FCOLOR=250><提示：/FCOLOR=251><噬金虫王[世界BOSS]/FCOLOR=253><已出现在/FCOLOR=254><(/FCOLOR=69><比奇城/FCOLOR=249><)/FCOLOR=69>！！
+SENDMOVEMSG 1 253 255 290 2 <世界BOSS/FCOLOR=250><提示：/FCOLOR=251><噬金虫王[世界BOSS]/FCOLOR=253><已出现在/FCOLOR=254><(/FCOLOR=69><比奇城/FCOLOR=249><)/FCOLOR=69>！！
+
+[@检测BOSS04刷新]
+#IF
+CHECKRANGEMONCOUNTEX 4 魔蝎大帝[世界BOSS] 150 303 10 < 1
+#ACT
+MOV G84 240
+MonGenEx 4 150 303 魔蝎大帝[世界BOSS] 1 1 0 249
+SENDMOVEMSG 1 253 255 350 2 <世界BOSS/FCOLOR=250><提示：/FCOLOR=251><魔蝎大帝[世界BOSS]/FCOLOR=253><已出现在/FCOLOR=254><(/FCOLOR=69><封魔谷/FCOLOR=249><)/FCOLOR=69>！！
+SENDMOVEMSG 1 253 255 320 2 <世界BOSS/FCOLOR=250><提示：/FCOLOR=251><魔蝎大帝[世界BOSS]/FCOLOR=253><已出现在/FCOLOR=254><(/FCOLOR=69><封魔谷/FCOLOR=249><)/FCOLOR=69>！！
+SENDMOVEMSG 1 253 255 290 2 <世界BOSS/FCOLOR=250><提示：/FCOLOR=251><魔蝎大帝[世界BOSS]/FCOLOR=253><已出现在/FCOLOR=254><(/FCOLOR=69><封魔谷/FCOLOR=249><)/FCOLOR=69>！！
+
+[@检测BOSS05刷新]
+#IF
+CHECKRANGEMONCOUNTEX 2 深渊魔王[世界BOSS] 77 312 10 < 1
+#ACT
+MOV G85 360
+MonGenEx 2 77 312 深渊魔王[世界BOSS] 1 1 0 249
+SENDMOVEMSG 1 253 255 350 2 <世界BOSS/FCOLOR=250><提示：/FCOLOR=251><深渊魔王[世界BOSS]/FCOLOR=253><已出现在/FCOLOR=254><(/FCOLOR=69><毒蛇山谷/FCOLOR=249><)/FCOLOR=69>！！
+SENDMOVEMSG 1 253 255 320 2 <世界BOSS/FCOLOR=250><提示：/FCOLOR=251><深渊魔王[世界BOSS]/FCOLOR=253><已出现在/FCOLOR=254><(/FCOLOR=69><毒蛇山谷/FCOLOR=249><)/FCOLOR=69>！！
+SENDMOVEMSG 1 253 255 290 2 <世界BOSS/FCOLOR=250><提示：/FCOLOR=251><深渊魔王[世界BOSS]/FCOLOR=253><已出现在/FCOLOR=254><(/FCOLOR=69><毒蛇山谷/FCOLOR=249><)/FCOLOR=69>！！
+;=====================================================================================================================
+;=====================================================================================================================
+
+;==============================================================================
+[@清理沙奖励]
+#ACT
+MOV G22 0
+
+[@奖励开启]
+#IF
+LARGE G21 1
+#ACT
+MOV G23 1
+SENDMOVEMSG 1 253 255 350 2 <沙巴克/FCOLOR=250><攻城战结束：/FCOLOR=251><请沙城主到小安全区/FCOLOR=253><领取奖励，/FCOLOR=254><(/FCOLOR=69><激情仍将继续/FCOLOR=249><)/FCOLOR=69>！！
+SENDMOVEMSG 1 253 255 320 2 <沙巴克/FCOLOR=250><攻城战结束：/FCOLOR=251><请沙城主到小安全区/FCOLOR=253><领取奖励，/FCOLOR=254><(/FCOLOR=69><激情仍将继续/FCOLOR=249><)/FCOLOR=69>！！
+SENDMOVEMSG 1 253 255 290 2 <沙巴克/FCOLOR=250><攻城战结束：/FCOLOR=251><请沙城主到小安全区/FCOLOR=253><领取奖励，/FCOLOR=254><(/FCOLOR=69><激情仍将继续/FCOLOR=249><)/FCOLOR=69>！！
+
+SENDMOVEMSG 0 251 249 380 2 福利激情BOSS活动22:10开始了，必爆终极剑甲和终极首饰，BOSS即将刷新，各路英雄准备前去挑战吧！！！
+SENDMOVEMSG 0 251 249 410 2 福利激情BOSS活动22:10开始了，必爆终极剑甲和终极首饰，BOSS即将刷新，各路英雄准备前去挑战吧！！！
+
+
+[@奖励关闭]
+#ACT
+MOV G23 0
+
+[@开区天数]
+#ACT
+INC G21 1
+[@攻沙设置]
+#IF
+LARGE G21 1
+#ACT
+AddAttackSabukAll 0
+SENDMOVEMSG 1 253 255 350 2 <沙巴克/FCOLOR=250><攻城战：/FCOLOR=251><将在晚上/FCOLOR=253><8点开始/FCOLOR=254><(/FCOLOR=69><荣辱就在这一刻！杀！杀！杀！/FCOLOR=249><)/FCOLOR=69>！！
+SENDMOVEMSG 1 253 255 320 2 <沙巴克/FCOLOR=250><攻城战：/FCOLOR=251><将在晚上/FCOLOR=253><8点开始/FCOLOR=254><(/FCOLOR=69><荣辱就在这一刻！杀！杀！杀！/FCOLOR=249><)/FCOLOR=69>！！
+SENDMOVEMSG 1 253 255 290 2 <沙巴克/FCOLOR=250><攻城战：/FCOLOR=251><将在晚上/FCOLOR=253><8点开始/FCOLOR=254><(/FCOLOR=69><荣辱就在这一刻！杀！杀！杀！/FCOLOR=249><)/FCOLOR=69>！！
+
+[@攻沙喊话]
+#IF
+LARGE G21 1
+#ACT
+SENDMOVEMSG 1 253 255 350 2 <沙巴克/FCOLOR=250><攻城战：/FCOLOR=251><将在晚上/FCOLOR=253><8点开始/FCOLOR=254><(/FCOLOR=69><荣辱就在这一刻！杀！杀！杀！/FCOLOR=249><)/FCOLOR=69>！！
+SENDMOVEMSG 1 253 255 320 2 <沙巴克/FCOLOR=250><攻城战：/FCOLOR=251><将在晚上/FCOLOR=253><8点开始/FCOLOR=254><(/FCOLOR=69><荣辱就在这一刻！杀！杀！杀！/FCOLOR=249><)/FCOLOR=69>！！
+SENDMOVEMSG 1 253 255 290 2 <沙巴克/FCOLOR=250><攻城战：/FCOLOR=251><将在晚上/FCOLOR=253><8点开始/FCOLOR=254><(/FCOLOR=69><荣辱就在这一刻！杀！杀！杀！/FCOLOR=249><)/FCOLOR=69>！！
+;------------------------------------------------------------------------------------------------------------------
+[@攻沙恢复]
+#IF
+LARGE G21 1
+#ACT
+DELNpc ★≮域外桃园≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮魔月林地≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮众神古墓≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮庄园之都≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮神之宝阁≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮幻想神域≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮逆魔迷宫≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮轩辕暗殿≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮万兽石窟≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮幽灵之地≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮血影鬼域≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮乾坤禁地≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮究级魔殿≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮逍遥仙境≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮隐龙暗域≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮冰雪祭坛≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮魔界秘道≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮黑暗沼泽≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮血腥炼狱≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮未知暗殿≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮幻魔神地≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮【妖】百花谷≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮【魔】绝情谷≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮【鬼】蝴蝶谷≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮【皇】冰风谷≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮【佛】忘忧谷≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮【仙】天际谷≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮【神】飞龙谷≯★\¨(打金)¨\┅┅┅┅┅┅
+
+CreateNPC ★≮域外桃园≯★\¨(打金)¨\┅┅┅┅┅┅ a3	338	345 19001 1第一大陆\域外桃园-a3 0
+CreateNPC ★≮魔月林地≯★\¨(打金)¨\┅┅┅┅┅┅ a3	334	345 19001 1第一大陆\魔月林地-a3 0
+CreateNPC ★≮众神古墓≯★\¨(打金)¨\┅┅┅┅┅┅ a3	330	345 19001 1第一大陆\众神古墓-a3 0
+CreateNPC ★≮庄园之都≯★\¨(打金)¨\┅┅┅┅┅┅ a3	326	345 19001 1第一大陆\庄园之都-a3 0
+CreateNPC ★≮神之宝阁≯★\¨(打金)¨\┅┅┅┅┅┅ a3	322	345 19001 1第一大陆\神之宝阁-a3 0
+CreateNPC ★≮幻想神域≯★\¨(打金)¨\┅┅┅┅┅┅ a3	318	345 19001 1第一大陆\幻想神域-a3 0
+
+CreateNPC ★≮逆魔迷宫≯★\¨(打金)¨\┅┅┅┅┅┅ 第二大陆 117	248 19002 2第二大陆\逆魔迷宫-第二大陆 0
+CreateNPC ★≮轩辕暗殿≯★\¨(打金)¨\┅┅┅┅┅┅ 第二大陆 113	248 19002 2第二大陆\轩辕暗殿-第二大陆 0
+CreateNPC ★≮万兽石窟≯★\¨(打金)¨\┅┅┅┅┅┅ 第二大陆 109	248 19002 2第二大陆\万兽石窟-第二大陆 0
+CreateNPC ★≮幽灵之地≯★\¨(打金)¨\┅┅┅┅┅┅ 第二大陆 105	248 19002 2第二大陆\幽灵之地-第二大陆 0
+CreateNPC ★≮血影鬼域≯★\¨(打金)¨\┅┅┅┅┅┅ 第二大陆 101	248 19002 2第二大陆\血影鬼域-第二大陆 0
+
+CreateNPC ★≮乾坤禁地≯★\¨(打金)¨\┅┅┅┅┅┅ 第三大陆 68	57 19003 3第三大陆\乾坤禁地-第三大陆 0
+CreateNPC ★≮究级魔殿≯★\¨(打金)¨\┅┅┅┅┅┅ 第三大陆 64	57 19003 3第三大陆\究级魔殿-第三大陆 0
+CreateNPC ★≮逍遥仙境≯★\¨(打金)¨\┅┅┅┅┅┅ 第三大陆 60	57 19003 3第三大陆\逍遥仙境-第三大陆 0
+CreateNPC ★≮隐龙暗域≯★\¨(打金)¨\┅┅┅┅┅┅ 第三大陆 56	57 19003 3第三大陆\隐龙暗域-第三大陆 0
+CreateNPC ★≮冰雪祭坛≯★\¨(打金)¨\┅┅┅┅┅┅ 第三大陆 52	57 19003 3第三大陆\冰雪祭坛-第三大陆 0
+
+CreateNPC ★≮魔界秘道≯★\¨(打金)¨\┅┅┅┅┅┅ 第四大陆 107	229 19004 4第四大陆\魔界秘道-第四大陆 0
+CreateNPC ★≮黑暗沼泽≯★\¨(打金)¨\┅┅┅┅┅┅ 第四大陆 103	229 19004 4第四大陆\黑暗沼泽-第四大陆 0
+CreateNPC ★≮血腥炼狱≯★\¨(打金)¨\┅┅┅┅┅┅ 第四大陆 99	229 19004 4第四大陆\血腥炼狱-第四大陆 0
+CreateNPC ★≮未知暗殿≯★\¨(打金)¨\┅┅┅┅┅┅ 第四大陆 95	229 19004 4第四大陆\未知暗殿-第四大陆 0
+CreateNPC ★≮幻魔神地≯★\¨(打金)¨\┅┅┅┅┅┅ 第四大陆 91	229 19004 4第四大陆\幻魔神地-第四大陆 0
+
+CreateNPC ★≮【妖】百花谷≯★\¨(打金)¨\┅┅┅┅┅┅ 第五大陆 60	305 19005 5第五大陆\【妖】百花谷-第五大陆 0
+CreateNPC ★≮【魔】绝情谷≯★\¨(打金)¨\┅┅┅┅┅┅ 第五大陆 56	305 19005 5第五大陆\【魔】绝情谷-第五大陆 0
+CreateNPC ★≮【鬼】蝴蝶谷≯★\¨(打金)¨\┅┅┅┅┅┅ 第五大陆 52	305 19005 5第五大陆\【鬼】蝴蝶谷-第五大陆 0
+CreateNPC ★≮【皇】冰风谷≯★\¨(打金)¨\┅┅┅┅┅┅ 第五大陆 48	305 19005 5第五大陆\【皇】冰风谷-第五大陆 0
+CreateNPC ★≮【佛】忘忧谷≯★\¨(打金)¨\┅┅┅┅┅┅ 第五大陆 44	305 19005 5第五大陆\【佛】忘忧谷-第五大陆 0
+CreateNPC ★≮【仙】天际谷≯★\¨(打金)¨\┅┅┅┅┅┅ 第五大陆 41	312 19006 5第五大陆\【仙】天际谷-第五大陆 0
+CreateNPC ★≮【神】飞龙谷≯★\¨(打金)¨\┅┅┅┅┅┅ 第五大陆 41	318 19006 5第五大陆\【神】飞龙谷-第五大陆 0
+
+#IF
+#ACT
+GMEXECUTE 开始提问 @逐鹿中原激情BOSS活动弹窗
+MonGenEx 激情BOSS 45 40 ★★★必爆终极·激情BOSS★★★ 1 1 0 251
+SENDMOVEMSG 0 251 249 300 2 福利激情BOSS活动开始了，必爆终极剑甲和终极首饰，BOSS已刷新，各路英雄前去挑战吧！！！
+SENDMOVEMSG 0 251 249 330 2 福利激情BOSS活动开始了，必爆终极剑甲和终极首饰，BOSS已刷新，各路英雄前去挑战吧！！！
+SENDMOVEMSG 0 251 249 360 2 福利激情BOSS活动开始了，必爆终极剑甲和终极首饰，BOSS已刷新，各路英雄前去挑战吧！！！
+SENDMOVEMSG 0 251 249 390 2 福利激情BOSS活动开始了，必爆终极剑甲和终极首饰，BOSS已刷新，各路英雄前去挑战吧！！！
+
+	
+[@攻沙清理]
+#IF
+LARGE G21 1
+#ACT
+DELNpc ★≮域外桃园≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮魔月林地≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮众神古墓≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮庄园之都≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮神之宝阁≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮幻想神域≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮逆魔迷宫≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮轩辕暗殿≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮万兽石窟≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮幽灵之地≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮血影鬼域≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮乾坤禁地≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮究级魔殿≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮逍遥仙境≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮隐龙暗域≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮冰雪祭坛≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮魔界秘道≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮黑暗沼泽≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮血腥炼狱≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮未知暗殿≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮幻魔神地≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮【妖】百花谷≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮【魔】绝情谷≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮【鬼】蝴蝶谷≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮【皇】冰风谷≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮【佛】忘忧谷≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮【仙】天际谷≯★\¨(打金)¨\┅┅┅┅┅┅
+DELNpc ★≮【神】飞龙谷≯★\¨(打金)¨\┅┅┅┅┅┅
+
+;GMEXECUTE 开始提问 @全部杀死
+
+;将怪物地图中的人全部移动到城里(人物死亡不掉物品,显示凶手信息为NPC)
+MoveMapPlay 等级050 a3 325 338
+MoveMapPlay 等级100 a3 325 338
+MoveMapPlay 等级110 a3 325 338
+MoveMapPlay 等级120 a3 325 338
+MoveMapPlay 等级130 a3 325 338
+MoveMapPlay 等级150 a3 325 338
+MoveMapPlay 等级152 a3 325 338
+MoveMapPlay 等级154 a3 325 338
+MoveMapPlay 等级156 a3 325 338
+MoveMapPlay 等级158 a3 325 338
+MoveMapPlay 等级160 a3 325 338
+MoveMapPlay 等级162 a3 325 338
+MoveMapPlay 等级164 a3 325 338
+MoveMapPlay 等级166 a3 325 338
+MoveMapPlay 等级168 a3 325 338
+MoveMapPlay 等级170 a3 325 338
+MoveMapPlay 等级172 a3 325 338
+MoveMapPlay 等级174 a3 325 338
+MoveMapPlay 等级176 a3 325 338
+MoveMapPlay 等级178 a3 325 338
+MoveMapPlay 等级180 a3 325 338
+MoveMapPlay 等级185 a3 325 338
+MoveMapPlay 等级190 a3 331 338
+MoveMapPlay 等级195 a3 331 338
+MoveMapPlay 等级200 a3 331 338
+MoveMapPlay 等级205 a3 331 338
+MoveMapPlay 等级210 a3 331 330
+MoveMapPlay 等级220 a3 324 330
+
+SENDMOVEMSG 1 253 255 350 2 <沙巴克/FCOLOR=250><攻城战：/FCOLOR=251><将在晚上/FCOLOR=253><8点开始/FCOLOR=254><(/FCOLOR=69><荣辱就在这一刻！杀！杀！杀！/FCOLOR=249><)/FCOLOR=69>！！
+SENDMOVEMSG 1 253 255 320 2 <沙巴克/FCOLOR=250><攻城战：/FCOLOR=251><将在晚上/FCOLOR=253><8点开始/FCOLOR=254><(/FCOLOR=69><荣辱就在这一刻！杀！杀！杀！/FCOLOR=249><)/FCOLOR=69>！！
+SENDMOVEMSG 1 253 255 290 2 <沙巴克/FCOLOR=250><攻城战：/FCOLOR=251><将在晚上/FCOLOR=253><8点开始/FCOLOR=254><(/FCOLOR=69><荣辱就在这一刻！杀！杀！杀！/FCOLOR=249><)/FCOLOR=69>！！
+;------------------------------------------------------------------------------------------------------------------
+;------------------------------------------------------------------------------------------------------------------
+
+
+
+[@擂台倒计时]
+#IF
+EQUAL A509
+#ACT
+MOV A509 等待摆擂
+
+#IF
+EQUAL A509 等待摆擂
+#ACT
+MOV A711 擂台状态:等待摆擂\①号擂台
+BREAK
+
+#IF
+CheckRangeHumCount lei 33 39 4 = 0
+#ACT
+MOV A509 等待摆擂
+MOV A507
+MOV A508
+MOV G509
+MOV G506
+MOV A710
+
+#IF
+EQUAL A509 等待挑战
+LARGE G509 0
+#ACT
+DEC G509 1
+MOV A711 擂台状态:等待挑战\①号擂台\剩余时间：<$STR(G509)>
+<$STR(A507)>.SendCenterMsg 251 0 请等待挑战者降临！！！<$STR(G509)>秒后如果没有人挑战将被送出擂台 0 1 
+
+#IF
+EQUAL A509 等待挑战
+EQUAL G509 0
+<$STR(A507)>.CheckHumInRange lei 33 39 4
+#ACT
+MOV A711 擂台状态:等待挑战\①号擂台\剩余时间：<$STR(G509)>
+MOV A509 等待摆擂
+<$STR(A507)>.mapmove lei 39 33
+<$STR(A507)>.GAMEGIRD + <$STR(G506)>
+sendmsg 0 一号擂台玩家《<$STR(A507)>》30秒内无人挑战，系统将他送出擂台并返还鹿币！
+MESSAGEBOX 30秒内无人挑战，系统将您送出擂台并返还鹿币！
+MOV A507
+MOV A508
+MOV A710
+MOV G506
+
+#IF
+EQUAL A509 正在战斗
+LARGE G509 0
+#ACT
+DEC G509 1
+MOV A711 擂台状态:正在战斗\①号擂台\剩余时间：<$STR(G509)>
+<$STR(A508)>.SendCenterMsg 251 0 正在战斗，剩余时间<$STR(G509)>秒，双方任何一方离线或者离开地图自动判输 0 1 
+<$STR(A507)>.SendCenterMsg 251 0 正在战斗，剩余时间<$STR(G509)>秒，双方任何一方离线或者离开地图自动判输 0 1 
+
+#IF
+EQUAL A509 正在战斗
+EQUAL G509 0
+#ACT
+MOV A711 擂台状态:正在战斗\①号擂台\剩余时间：<$STR(G509)>
+<$STR(A507)>.mapmove lei 39 33
+<$STR(A507)>.GAMEGIRD + <$STR(G506)>
+<$STR(A508)>.mapmove lei 39 33
+<$STR(A508)>.GAMEGIRD + <$STR(G506)>
+sendmsg 0 一号擂台双方鏖战120秒后，战成平局，系统将送出擂台并返还鹿币！
+<$STR(A507)>.MESSAGEBOX 你与对手战成平局，系统将您送出擂台并返还<$STR(G506)>鹿币！
+<$STR(A508)>.MESSAGEBOX 你与对手战成平局，系统将您送出擂台并返还<$STR(G506)>鹿币！
+MOV A509 等待摆擂
+MOV A507
+MOV A508
+MOV G509
+MOV G506
+MOV A710
+
+#IF
+EQUAL A509 正在结算
+LARGE G509 0
+#ACT
+DEC G509 1
+MOV A711 擂台状态:正在结算\①号擂台\剩余时间：<$STR(G509)>
+<$STR(A710)>.SendCenterMsg 253 0 正在结算，剩余时间<$STR(G509)>秒，请不要离开擂台！ 0 1 
+
+#IF
+EQUAL A509 正在结算
+EQUAL G509 0
+#ACT
+MOV A711 擂台状态:正在结算\①号擂台\剩余时间：<$STR(G509)>
+MOV A509 等待摆擂
+<$STR(A710)>.mapmove lei 39 33
+MUL I96 <$STR(G506)> 2
+<$STR(A710)>.GAMEGIRD + <$STR(I96)>
+<$STR(A710)>.MESSAGEBOX 恭喜您获得最终胜利，得到<$STR(I96)>鹿币！
+sendmsg 0 一号擂台结算完毕！玩家[<$STR(A710)>]获得最终胜利，得到<$STR(I96)>鹿币！
+MOV A507
+MOV A508
+MOV A710
+MOV G506
+
+
+[@二号擂台倒计时]
+#IF
+EQUAL A609
+#ACT
+MOV A609 等待摆擂
+
+#IF
+EQUAL A609 等待摆擂
+#ACT
+MOV A811 擂台状态:等待摆擂\②号擂台
+BREAK
+
+#IF
+CheckRangeHumCount lei 46 39 4 = 0
+#ACT
+MOV A609 等待摆擂
+MOV A607
+MOV A608
+MOV G609
+MOV G606
+MOV A810
+
+#IF
+EQUAL A609 等待挑战
+LARGE G609 0
+#ACT
+DEC G609 1
+MOV A811 擂台状态:等待挑战\②号擂台\剩余时间：<$STR(G609)>
+<$STR(A607)>.SendCenterMsg 251 0 请等待挑战者降临！！！<$STR(G609)>秒后如果没有人挑战将被送出擂台 0 1 
+
+#IF
+EQUAL A609 等待挑战
+EQUAL G609 0
+<$STR(A607)>.CheckHumInRange lei 46 39 4
+#ACT
+MOV A811 擂台状态:等待挑战\②号擂台\剩余时间：<$STR(G609)>
+MOV A609 等待摆擂
+<$STR(A607)>.mapmove lei 39 33
+<$STR(A607)>.GAMEGIRD + <$STR(G606)>
+sendmsg 0 二号擂台玩家《<$STR(A607)>》30秒内无人挑战，系统将他送出擂台并返还鹿币！
+MESSAGEBOX 30秒内无人挑战，系统将您送出擂台并返还鹿币！
+MOV A607
+MOV A608
+MOV G606
+MOV A810
+
+#IF
+EQUAL A609 正在战斗
+LARGE G609 0
+#ACT
+DEC G609 1
+MOV A811 擂台状态:正在战斗\②号擂台\剩余时间：<$STR(G609)>
+<$STR(A608)>.SendCenterMsg 251 0 正在战斗，剩余时间<$STR(G609)>秒，双方任何一方离线或者离开地图自动判输 0 1 
+<$STR(A607)>.SendCenterMsg 251 0 正在战斗，剩余时间<$STR(G609)>秒，双方任何一方离线或者离开地图自动判输 0 1 
+
+#IF
+EQUAL A609 正在战斗
+EQUAL G609 0
+#ACT
+MOV A811 擂台状态:正在战斗\②号擂台\剩余时间：<$STR(G609)>
+<$STR(A607)>.mapmove lei 39 33
+<$STR(A607)>.GAMEGIRD + <$STR(G606)>
+<$STR(A608)>.mapmove lei 39 33
+<$STR(A608)>.GAMEGIRD + <$STR(G606)>
+<$STR(A607)>.MESSAGEBOX 你与对手战成平局，系统将您送出擂台并返还<$STR(G606)>鹿币！
+<$STR(A608)>.MESSAGEBOX 你与对手战成平局，系统将您送出擂台并返还<$STR(G606)>鹿币！
+sendmsg 0 二号擂台双方鏖战120秒后，战成平局，系统将送出擂台并返还鹿币！
+MOV A609 等待摆擂
+MOV A607
+MOV A608
+MOV G609
+MOV G606
+MOV A810
+
+#IF
+EQUAL A609 正在结算
+LARGE G609 0
+#ACT
+DEC G609 1
+MOV A811 擂台状态:正在结算\②号擂台\剩余时间：<$STR(G609)>
+<$STR(A810)>.SendCenterMsg 253 0 正在结算，剩余时间<$STR(G609)>秒，请不要离开擂台！ 0 1 
+
+#IF
+EQUAL A609 正在结算
+EQUAL G609 0
+#ACT
+MOV A811 擂台状态:正在结算\②号擂台\剩余时间：<$STR(G609)>
+MOV A609 等待摆擂
+<$STR(A810)>.mapmove lei 39 33
+MUL I97 <$STR(G606)> 2
+<$STR(A810)>.GAMEGIRD + <$STR(I97)>
+sendmsg 0 二号擂台结算完毕！玩家[<$STR(A810)>]获得最终胜利，得到<$STR(I97)>鹿币！
+<$STR(A810)>.MESSAGEBOX 恭喜您获得最终胜利，得到<$STR(I97)>鹿币！
+MOV A607
+MOV A608
+MOV A810
+MOV G606
+
+
+
+[@假人上线]
+#IF
+CHECKDUMMYCOUNT < 30
+#ACT
+MOVR N$坐标左 318 338
+MOVR N$坐标右 324 344
+DUMMYLOGON a3 <$STR(N$坐标左)> <$STR(N$坐标右)> 1
