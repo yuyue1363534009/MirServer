@@ -445,13 +445,14 @@ EQUAL U36 6
 MESSAGEBOX 恭喜你已经激活[魂骨·头部<$STR(S$魂骨等级<$STR(U36)>)>级]，无需继续激活！
 break
 
-
-#if
-check [150] 1
-#act
-MESSAGEBOX 其他魂骨没点满，无法点击下一层。
+#IF
+#ACT
+goto @检查是否可以升级
+#IF
+LARGE U36 <$STR(N$最低等级)>
+#ACT
+MESSAGEBOX 其他魂骨还没达到相同等级，请先将所有部位提升到<$STR(N$最低等级)>级后再继续！
 break
-
 
 #IF
 CHECKGameGold ? <$STR(S$魂骨价格0)>
@@ -459,8 +460,6 @@ CHECKGameGold ? <$STR(S$魂骨价格0)>
 INC U36 1
 GameGold - <$STR(S$魂骨价格0)>
 MESSAGEBOX 恭喜你成功激活[魂骨·头部<$STR(S$魂骨等级<$STR(U36)>)>级]
-set [150] 1
-goto @判断下一层
 goto @刷新魂骨等级
 goto @刷新属性
 goto @个人魂骨
@@ -476,14 +475,14 @@ EQUAL U37 6
 MESSAGEBOX 恭喜你已经激活[魂骨·身体<$STR(S$魂骨等级<$STR(U37)>)>级]，无需继续激活！
 break
 
-
-
-#if
-check [151] 1
-#act
-MESSAGEBOX 其他魂骨没点满，无法点击下一层。
+#IF
+#ACT
+goto @检查是否可以升级
+#IF
+LARGE U37 <$STR(N$最低等级)>
+#ACT
+MESSAGEBOX 其他魂骨还没达到相同等级，请先将所有部位提升到<$STR(N$最低等级)>级后再继续！
 break
-
 
 #IF
 CHECKGameGold ? <$STR(S$魂骨价格1)>
@@ -491,8 +490,6 @@ CHECKGameGold ? <$STR(S$魂骨价格1)>
 INC U37 1
 GameGold - <$STR(S$魂骨价格1)>
 MESSAGEBOX 恭喜你成功激活[魂骨·身体<$STR(S$魂骨等级<$STR(U37)>)>级]
-set [151] 1
-goto @判断下一层
 goto @刷新魂骨等级
 goto @刷新属性
 goto @个人魂骨
@@ -508,14 +505,14 @@ EQUAL U40 6
 MESSAGEBOX 恭喜你已经激活[魂骨·左臂<$STR(S$魂骨等级<$STR(U40)>)>级]，无需继续激活！
 break
 
-
-
-#if
-check [152] 1
-#act
-MESSAGEBOX 其他魂骨没点满，无法点击下一层。
+#IF
+#ACT
+goto @检查是否可以升级
+#IF
+LARGE U40 <$STR(N$最低等级)>
+#ACT
+MESSAGEBOX 其他魂骨还没达到相同等级，请先将所有部位提升到<$STR(N$最低等级)>级后再继续！
 break
-
 
 #IF
 CHECKGameGold ? <$STR(S$魂骨价格3)>
@@ -523,8 +520,6 @@ CHECKGameGold ? <$STR(S$魂骨价格3)>
 INC U40 1
 GameGold - <$STR(S$魂骨价格3)>
 MESSAGEBOX 恭喜你成功激活[魂骨·左臂<$STR(S$魂骨等级<$STR(U40)>)>级]
-set [152] 1
-goto @判断下一层
 goto @刷新魂骨等级
 goto @刷新属性
 goto @个人魂骨
@@ -540,13 +535,14 @@ EQUAL U38 6
 MESSAGEBOX 恭喜你已经激活[魂骨·右臂<$STR(S$魂骨等级<$STR(U38)>)>级]，无需继续激活！
 break
 
-
-#if
-check [153] 1
-#act
-MESSAGEBOX 其他魂骨没点满，无法点击下一层。
+#IF
+#ACT
+goto @检查是否可以升级
+#IF
+LARGE U38 <$STR(N$最低等级)>
+#ACT
+MESSAGEBOX 其他魂骨还没达到相同等级，请先将所有部位提升到<$STR(N$最低等级)>级后再继续！
 break
-
 
 #IF
 CHECKGameGold ? <$STR(S$魂骨价格2)>
@@ -554,8 +550,6 @@ CHECKGameGold ? <$STR(S$魂骨价格2)>
 INC U38 1 
 GameGold - <$STR(S$魂骨价格2)>
 MESSAGEBOX 恭喜你成功激活[魂骨·右臂<$STR(S$魂骨等级<$STR(U38)>)>级]
-set [153] 1
-goto @判断下一层
 goto @刷新魂骨等级
 goto @刷新属性
 goto @个人魂骨
@@ -571,13 +565,14 @@ EQUAL U35 6
 MESSAGEBOX 恭喜你已经激活[魂骨·左手<$STR(S$魂骨等级<$STR(U35)>)>级]，无需继续激活！
 break
 
-#if
-check [154] 1
-#act
-MESSAGEBOX 其他魂骨没点满，无法点击下一层。
+#IF
+#ACT
+goto @检查是否可以升级
+#IF
+LARGE U35 <$STR(N$最低等级)>
+#ACT
+MESSAGEBOX 其他魂骨还没达到相同等级，请先将所有部位提升到<$STR(N$最低等级)>级后再继续！
 break
-
-
 
 #IF
 CHECKGameGold ? <$STR(S$魂骨价格5)>
@@ -585,8 +580,6 @@ CHECKGameGold ? <$STR(S$魂骨价格5)>
 INC U35 1
 GameGold - <$STR(S$魂骨价格5)>
 MESSAGEBOX 恭喜你成功激活[魂骨·左手<$STR(S$魂骨等级<$STR(U35)>)>级]
-set [154] 1
-goto @判断下一层
 goto @刷新魂骨等级
 goto @刷新属性
 goto @个人魂骨
@@ -596,21 +589,20 @@ MESSAGEBOX 抱歉，您的元宝不足
 break
 
 [@魂骨右手]
-
 #IF
 EQUAL U41 6
 #ACT
 MESSAGEBOX 恭喜你已经激活[魂骨·右手<$STR(S$魂骨等级<$STR(U41)>)>级]，无需继续激活！
 break
 
-
-
-#if
-check [155] 1
-#act
-MESSAGEBOX 其他魂骨没点满，无法点击下一层。
+#IF
+#ACT
+goto @检查是否可以升级
+#IF
+LARGE U41 <$STR(N$最低等级)>
+#ACT
+MESSAGEBOX 其他魂骨还没达到相同等级，请先将所有部位提升到<$STR(N$最低等级)>级后再继续！
 break
-
 
 #IF
 CHECKGameGold ? <$STR(S$魂骨价格4)>
@@ -618,8 +610,6 @@ CHECKGameGold ? <$STR(S$魂骨价格4)>
 INC U41 1 
 GameGold - <$STR(S$魂骨价格4)>
 MESSAGEBOX 恭喜你成功激活[魂骨·右手<$STR(S$魂骨等级<$STR(U41)>)>级]
-set [155] 1
-goto @判断下一层
 goto @刷新魂骨等级
 goto @刷新属性
 goto @个人魂骨
@@ -635,11 +625,13 @@ EQUAL U45 6
 MESSAGEBOX 恭喜你已经激活[魂骨·左腿<$STR(S$魂骨等级<$STR(U45)>)>级]，无需继续激活！
 break
 
-
-#if
-check [156] 1
-#act
-MESSAGEBOX 其他魂骨没点满，无法点击下一层。
+#IF
+#ACT
+goto @检查是否可以升级
+#IF
+LARGE U45 <$STR(N$最低等级)>
+#ACT
+MESSAGEBOX 其他魂骨还没达到相同等级，请先将所有部位提升到<$STR(N$最低等级)>级后再继续！
 break
 
 #IF
@@ -648,8 +640,6 @@ CHECKGameGold ? <$STR(S$魂骨价格7)>
 INC U45 1 
 GameGold - <$STR(S$魂骨价格7)>
 MESSAGEBOX 恭喜你成功激活[魂骨·左腿<$STR(S$魂骨等级<$STR(U45)>)>级]
-set [156] 1
-goto @判断下一层
 goto @刷新魂骨等级
 goto @刷新属性
 goto @个人魂骨
@@ -665,12 +655,13 @@ EQUAL U43 6
 MESSAGEBOX 恭喜你已经激活[魂骨·右腿<$STR(S$魂骨等级<$STR(U43)>)>级]，无需继续激活！
 break
 
-
-
-#if
-check [157] 1
-#act
-MESSAGEBOX 其他魂骨没点满，无法点击下一层。
+#IF
+#ACT
+goto @检查是否可以升级
+#IF
+LARGE U43 <$STR(N$最低等级)>
+#ACT
+MESSAGEBOX 其他魂骨还没达到相同等级，请先将所有部位提升到<$STR(N$最低等级)>级后再继续！
 break
 
 #IF
@@ -679,8 +670,6 @@ CHECKGameGold ? <$STR(S$魂骨价格6)>
 inc U43 1
 GameGold - <$STR(S$魂骨价格6)>
 MESSAGEBOX 恭喜你成功激活[魂骨·右腿<$STR(S$魂骨等级<$STR(U43)>)>级]
-set [157] 1
-goto @判断下一层
 goto @刷新魂骨等级
 goto @刷新属性
 goto @个人魂骨
@@ -696,11 +685,13 @@ EQUAL U47 6
 MESSAGEBOX 恭喜你已经激活[魂骨·左脚<$STR(S$魂骨等级<$STR(U47)>)>级]，无需继续激活！
 break
 
-
-#if
-check [158] 1
-#act
-MESSAGEBOX 其他魂骨没点满，无法点击下一层。
+#IF
+#ACT
+goto @检查是否可以升级
+#IF
+LARGE U47 <$STR(N$最低等级)>
+#ACT
+MESSAGEBOX 其他魂骨还没达到相同等级，请先将所有部位提升到<$STR(N$最低等级)>级后再继续！
 break
 
 #IF
@@ -709,8 +700,6 @@ CHECKGameGold ? <$STR(S$魂骨价格9)>
 inc U47 1
 GameGold - <$STR(S$魂骨价格9)>
 MESSAGEBOX 恭喜你成功激活[魂骨·左脚<$STR(S$魂骨等级<$STR(U47)>)>级]
-set [158] 1
-goto @判断下一层
 goto @刷新魂骨等级
 goto @刷新属性
 goto @个人魂骨
@@ -726,11 +715,13 @@ EQUAL U46 6
 MESSAGEBOX 恭喜你已经激活[魂骨·右脚<$STR(S$魂骨等级<$STR(U46)>)>级]，无需继续激活！
 break
 
-
-#if
-check [159] 1
-#act
-MESSAGEBOX 其他魂骨没点满，无法点击下一层。
+#IF
+#ACT
+goto @检查是否可以升级
+#IF
+LARGE U46 <$STR(N$最低等级)>
+#ACT
+MESSAGEBOX 其他魂骨还没达到相同等级，请先将所有部位提升到<$STR(N$最低等级)>级后再继续！
 break
 
 #IF
@@ -739,8 +730,6 @@ CHECKGameGold ? <$STR(S$魂骨价格8)>
 inc U46 1
 GameGold - <$STR(S$魂骨价格8)>
 MESSAGEBOX 恭喜你成功激活[魂骨·右脚<$STR(S$魂骨等级<$STR(U46)>)>级]
-set [159] 1
-goto @判断下一层
 goto @刷新魂骨等级
 goto @刷新属性
 goto @个人魂骨
@@ -750,72 +739,50 @@ MESSAGEBOX 抱歉，您的元宝不足
 break
 
 
-[@判断魂骨等级]
-
-#if
-EQUAL <$STR(S$当前魂骨等级)> 0
-#act
-MOV N$当前所需元宝 30000
-set [3] 1
-break
-
-#if
-EQUAL <$STR(S$当前魂骨等级)> 1
-#act
-MOV N$当前所需元宝 50000
-
-break
-
-#if
-EQUAL <$STR(S$当前魂骨等级)> 2
-#act
-MOV N$当前所需元宝 100000
-
-break
-
-#if
-EQUAL <$STR(S$当前魂骨等级)> 3
-#act
-MOV N$当前所需元宝 150000
-
-break
-
-#if
-EQUAL <$STR(S$当前魂骨等级)> 4
-#act
-MOV N$当前所需元宝 200000
-
-break
-
-#if
-EQUAL <$STR(S$当前魂骨等级)> 5
-#act
-MOV N$当前所需元宝 300000
-break
-
-[@判断下一层]
+[@检查是否可以升级]
 #IF
-	CHECK [150] 1
-	CHECK [151] 1
-	CHECK [152] 1
-	CHECK [153] 1
-	CHECK [154] 1
-	CHECK [155] 1
-	CHECK [156] 1
-	CHECK [157] 1
-	CHECK [158] 1
-	CHECK [159] 1
 #ACT
-	SET [150] 0
-	SET [151] 0
-	SET [152] 0
-	SET [153] 0
-	SET [154] 0
-	SET [155] 0
-	SET [156] 0
-	SET [157] 0
-	SET [158] 0
-	SET [159] 0
+MOV N$最低等级 999
+#IF
+SMALL U35 <$STR(N$最低等级)>
+#ACT
+MOV N$最低等级 <$STR(U35)>
+#IF
+SMALL U36 <$STR(N$最低等级)>
+#ACT
+MOV N$最低等级 <$STR(U36)>
+#IF
+SMALL U37 <$STR(N$最低等级)>
+#ACT
+MOV N$最低等级 <$STR(U37)>
+#IF
+SMALL U38 <$STR(N$最低等级)>
+#ACT
+MOV N$最低等级 <$STR(U38)>
+#IF
+SMALL U40 <$STR(N$最低等级)>
+#ACT
+MOV N$最低等级 <$STR(U40)>
+#IF
+SMALL U41 <$STR(N$最低等级)>
+#ACT
+MOV N$最低等级 <$STR(U41)>
+#IF
+SMALL U43 <$STR(N$最低等级)>
+#ACT
+MOV N$最低等级 <$STR(U43)>
+#IF
+SMALL U45 <$STR(N$最低等级)>
+#ACT
+MOV N$最低等级 <$STR(U45)>
+#IF
+SMALL U46 <$STR(N$最低等级)>
+#ACT
+MOV N$最低等级 <$STR(U46)>
+#IF
+SMALL U47 <$STR(N$最低等级)>
+#ACT
+MOV N$最低等级 <$STR(U47)>
 break
 
 [@刷新魂骨等级]
